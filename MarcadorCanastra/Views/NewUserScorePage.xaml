@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MarcadorCanastra.Views.NewUserScorePage"
+             Title="Adicionar Pontuação">    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Batida"
+                   FontSize="Medium"
+                   Visual="Material"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
+
+            <CheckBox Grid.Row="0"
+                      Grid.Column="1"
+                      Visual="Material"
+                      CheckedChanged="CheckBox_CheckedChanged"
+                      />
+            <Label Text="Canastra Limpa"
+                   FontSize="Medium"
+                   Visual="Material"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   />
+            <Stepper Minimum="0"
+                 Increment="1"
+                     Visual="Material"
+                 HorizontalOptions="Center"
+                     
+                 ValueChanged="OnCanastraLimpaStepperValueChanged"
+                     Grid.Row="1"
+                     Grid.Column="1"/>
+            
+            <Label Text="Canastra Suja"
+                   Visual="Material"
+                   FontSize="Medium"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
+            <Stepper Minimum="0"
+                     Visual="Material"
+                 Increment="1"
+                 HorizontalOptions="Center"
+                     ValueChanged="OnCanastraSujaStepperValueChanged"
+                     Grid.Row="2"
+                     Grid.Column="1"/>
+            
+            <Label Text="Total cartas menos cartas na mão"
+                   Visual="Material"
+                   FontSize="Medium"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   />
+            <Entry Text="{Binding TotalCardsInHand}"
+                   d:Text="25"
+                   Visual="Material"
+                   FontSize="Small"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+            <Label Text="Pontuação Total"
+                   Visual="Material"
+                   FontSize="Medium"
+                   Grid.Row="4"
+                   Grid.Column="0"/>
+            <Label Text="{Binding UserScore.Total}"
+                   d:Text="5000"
+                   Visual="Material"
+                   FontSize="Large"
+                   Grid.Row="4"
+                   Grid.Column="1"/>            
+            <Button Text="Salvar"
+                    Visual="Material"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"/>
+
+        </Grid>
+
+       
+    </ContentPage.Content>
+</ContentPage>
