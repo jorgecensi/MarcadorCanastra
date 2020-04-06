@@ -3,6 +3,7 @@
     public class UserScore
     {
         public string Id { get; set; }
+        public User User { get; set; }
         public int Total {
             get
             {
@@ -14,8 +15,9 @@
         public int TotalCanastraSuja { get; set; }
         public int TotalCardsInHand { get; set; }
 
-        public UserScore()
+        public UserScore(User user)
         {
+            User = user;
             Total = 0;
         }
 

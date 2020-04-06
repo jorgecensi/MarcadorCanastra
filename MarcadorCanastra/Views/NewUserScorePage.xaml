@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.NewUserScorePage"
-             Title="Adicionar Pontuação">    
+             Title="{Binding UserScore.User.Name}">    
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>

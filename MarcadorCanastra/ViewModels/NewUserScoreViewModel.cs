@@ -28,7 +28,7 @@ namespace MarcadorCanastra.ViewModels
 
         public NewUserScoreViewModel()
         {
-            _userScore = new UserScore();
+            _userScore = new UserScore(new User { Name = "Jorge"});
         }
 
         public void SetBatida(bool bateu)
