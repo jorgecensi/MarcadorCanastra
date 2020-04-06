@@ -13,11 +13,13 @@
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
             <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Game.Text}"
+            <Entry Text="{Binding Player1Name}"
                    d:Text="Jogador 1"
+                   Placeholder="Jogador 1"
                    FontSize="Small" />            
-            <Editor Text="{Binding Item.Description}"
+            <Editor Text="{Binding Player2Name}"
                     d:Text="Jogador 2"
+                    Placeholder="Jogador 2"
                     FontSize="Small"
                     Margin="0" />
         </StackLayout>

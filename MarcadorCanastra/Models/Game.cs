@@ -7,7 +7,8 @@ namespace MarcadorCanastra.Models
     public class Game
     {
         public string Id { get; set; }
-        public List<User> Users { get; set; } = new List<User>();
+        public User Player1 { get; set; }
+        public User Player2 { get; set; }
         public List<Round> Rounds { get; set; } = new List<Round>();
         public int FinalScorePlayer1
         {
@@ -30,10 +31,16 @@ namespace MarcadorCanastra.Models
         {
 
         }
-        public Game(List<User> users)
+        public Game(User player1, User player2)
         {
-            Users = users;
+            Player1 = player1;
+            Player2 = player2;
             Date = DateTime.Now;
+        }
+
+        public void AddScore(int playerNumber, UserScore userScore)
+        {
+
         }
     }
 

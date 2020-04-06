@@ -1,4 +1,5 @@
 ﻿using System;
+using MarcadorCanastra.Models;
 using MarcadorCanastra.ViewModels;
 using Xamarin.Forms;
 
@@ -9,11 +10,11 @@ namespace MarcadorCanastra.Views
         public NewUserScoreViewModel ViewModel { get; set; }
         
 
-        public NewUserScorePage()
+        public NewUserScorePage(User user)
         {
             InitializeComponent();
             
-            BindingContext = ViewModel = new NewUserScoreViewModel();
+            BindingContext = ViewModel = new NewUserScoreViewModel(user);
         }
 
         void OnCanastraLimpaStepperValueChanged(object sender, ValueChangedEventArgs e)

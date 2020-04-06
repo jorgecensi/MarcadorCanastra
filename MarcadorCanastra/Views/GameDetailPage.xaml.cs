@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MarcadorCanastra.Models;
 using MarcadorCanastra.ViewModels;
 using Xamarin.Forms;
@@ -21,14 +22,22 @@ namespace MarcadorCanastra.Views
         {
             InitializeComponent();
 
-            var game = new Game(new List<User>());
+            var game = new Game();
 
             viewModel = new GameDetailViewModel(game);
             BindingContext = viewModel;
         }
-        async void AddPoints_Clicked(object sender, EventArgs e)
+        
+
+        async void AddPlayer1Points_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage()));
+            var user = viewModel.Game.Player1;
+            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(user)));
+        }
+        async void AddPlayer2Points_Clicked(object sender, EventArgs e)
+        {
+            var user = viewModel.Game.Player2;
+            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(user)));
         }
     }
 }

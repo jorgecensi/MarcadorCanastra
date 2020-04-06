@@ -23,19 +23,19 @@ namespace MarcadorCanastra.Services
 
             games = new List<Game>()
             {
-                new Game( new List<User>{user1,user2 })
+                new Game( user1,user2 )
                 {
                     Id = Guid.NewGuid().ToString(),
                     Rounds = new List<Round>{ round1, round2, round3},                    
                     Date = new DateTime(2020,03,20)
                 },
-                new Game( new List<User>{user1,user2 })
+                new Game( user1,user2 )
                 {
                     Id = Guid.NewGuid().ToString(),
                     Rounds = new List<Round>{ round1, round2, round3},
                     Date = new DateTime(2020,03,21)
                 },
-                new Game( new List<User>{user1,user2 })
+                new Game( user1,user2 )
                 {
                     Id = Guid.NewGuid().ToString(),
                     Rounds = new List<Round>{ round1, round2, round3},

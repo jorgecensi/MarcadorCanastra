@@ -51,9 +51,9 @@ namespace MarcadorCanastra.ViewModels
         const string CANASTRALIMPA = "Canastra Limpa";
         const string CANASTRASUJA = "Canastra Suja";
 
-        public NewUserScoreViewModel()
+        public NewUserScoreViewModel(User user)
         {
-            _userScore = new UserScore(new User { Name = "Jorge"});
+            _userScore = new UserScore(user);
             _canastraLimpaLabel = CANASTRALIMPA;
             _canastraSujaLabel = CANASTRASUJA;
         }

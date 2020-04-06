@@ -6,10 +6,7 @@
              xmlns:models="clr-namespace:MarcadorCanastra.Models"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.GameDetailPage"
-             Title="{Binding Title}">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Marcar Pontos" Clicked="AddPoints_Clicked" />
-    </ContentPage.ToolbarItems>
+             Title="{Binding Title}">    
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Data do jogo:"               
                FontSize="Medium" />
@@ -17,8 +14,14 @@
                d:Text="20/03/2020 13:00 PM"
                FontSize="Small" />
         
-
+        <Button Text="Marcar pontos Jogador 1"
+                Clicked="AddPlayer1Points_Clicked"/>
+        <Button Text="Marcar pontos Jogador 2"
+                Clicked="AddPlayer2Points_Clicked"/>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Label Text="Round"
                         Grid.Column="0"/>
@@ -27,6 +30,7 @@
                 <Label Text="Jogador 2"
                         Grid.Column="2"/>
             </Grid>
+            
             <ListView
                 Grid.Row="1"
                 ItemsSource="{Binding Game.Rounds}

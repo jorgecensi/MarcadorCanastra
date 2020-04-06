@@ -1,26 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using MarcadorCanastra.Models;
+using MarcadorCanastra.ViewModels;
 using Xamarin.Forms;
 
 namespace MarcadorCanastra.Views
 {
     public partial class NewGamePage : ContentPage
     {
-        public Game Game { get; set; }
+        public NewGameViewModel viewModel { get; set; }
 
         public NewGamePage()
         {
             InitializeComponent();
 
-            Game = new Game(new List<User>());
-
-            BindingContext = this;
+            BindingContext = viewModel = new NewGameViewModel();            
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddGame", Game);
+            var player1 = new User { Name = viewModel.Player1Name };
+            var player2 = new User { Name = viewModel.Player2Name };
+            
+            var game = new Game(player1, player2);
+            MessagingCenter.Send(this, "AddGame", game);
             await Navigation.PopModalAsync();
         }
 
