@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:MarcadorCanastra.Models"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.GameDetailPage"
              Title="{Binding Title}">
@@ -10,9 +11,68 @@
         <ToolbarItem Text="Marcar Pontos" Clicked="AddPoints_Clicked" />
     </ContentPage.ToolbarItems>
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Game Date:" FontSize="Medium" />
-        <Label Text="{Binding Game.Date}" d:Text="Item name" FontSize="Small" />
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" />
+        <Label Text="Data do jogo:"               
+               FontSize="Medium" />
+        <Label Text="{Binding Game.Date}"
+               d:Text="20/03/2020 13:00 PM"
+               FontSize="Small" />
+        
+
+        <Grid>
+            <Grid Grid.Row="0">
+                <Label Text="Round"
+                        Grid.Column="0"/>
+                <Label Text="Jogador 1"
+                        Grid.Column="1"/>
+                <Label Text="Jogador 2"
+                        Grid.Column="2"/>
+            </Grid>
+            <ListView
+                Grid.Row="1"
+                ItemsSource="{Binding Game.Rounds}
+                ">
+                <d:ListView.ItemsSource>
+                    <x:Array Type="{x:Type models:Round}">
+                        <models:Round RoundNumber="1"
+                                      Player1Score ="500"
+                                      Player2Score ="600"/>
+                        <models:Round RoundNumber="2"
+                                      Player1Score ="200"
+                                      Player2Score ="300"/>
+                        <models:Round RoundNumber="3"
+                                      Player1Score ="100"
+                                      Player2Score ="700"/>
+                        <models:Round RoundNumber="4"
+                                      Player1Score ="800"
+                                      Player2Score ="100"/>
+                            
+                        
+                    </x:Array>
+                </d:ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Round">
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding RoundNumber}"
+                                       Grid.Column="0"/>
+                                <Label Text="{Binding Player1Score}"
+                                       Grid.Column="1"/>
+                                <Label Text="{Binding Player2Score}"
+                                       Grid.Column="2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+            <Grid Grid.Row="2">
+                <Label Text="Total"
+                        Grid.Column="0"/>
+                <Label Text="{Binding Game.FinalScorePlayer1}"
+                        Grid.Column="1"/>
+                <Label Text="{Binding Game.FinalScorePlayer2}"
+                        Grid.Column="2"/>
+            </Grid>
+        </Grid>
     </StackLayout>
 </ContentPage>

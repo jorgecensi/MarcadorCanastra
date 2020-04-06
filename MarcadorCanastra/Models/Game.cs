@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MarcadorCanastra.Models
 {
@@ -7,9 +8,28 @@ namespace MarcadorCanastra.Models
     {
         public string Id { get; set; }
         public List<User> Users { get; set; } = new List<User>();
-        public List<UserScore> Scores { get; set; } = new List<UserScore>();
+        public List<Round> Rounds { get; set; }
+        public int FinalScorePlayer1
+        {
+            get
+            {
+                return Rounds.Sum(x => x.Player1Score);
+            }
+        }
+        public int FinalScorePlayer2
+        {
+            get
+            {
+                return Rounds.Sum(x => x.Player2Score);
+            }
+        }
+
         public DateTime Date { get; set; }
 
+        public Game()
+        {
+
+        }
         public Game(List<User> users)
         {
             Users = users;
