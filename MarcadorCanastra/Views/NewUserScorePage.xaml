@@ -8,6 +8,13 @@
              Title="{Binding UserScore.User.Name}">    
     <ContentPage.Content>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
@@ -23,7 +30,7 @@
                       Visual="Material"
                       CheckedChanged="CheckBox_CheckedChanged"
                       />
-            <Label Text="Canastra Limpa"
+            <Label Text="{Binding CanastraLimpaLabel}"
                    FontSize="Medium"
                    Visual="Material"
                    Grid.Row="1"
@@ -38,7 +45,7 @@
                      Grid.Row="1"
                      Grid.Column="1"/>
             
-            <Label Text="Canastra Suja"
+            <Label Text="{Binding CanastraSujaLabel}"
                    Visual="Material"
                    FontSize="Medium"
                    Grid.Row="2"

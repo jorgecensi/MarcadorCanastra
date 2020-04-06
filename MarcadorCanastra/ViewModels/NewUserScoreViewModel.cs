@@ -6,7 +6,8 @@ namespace MarcadorCanastra.ViewModels
     public class NewUserScoreViewModel:BaseViewModel
     {
         private UserScore _userScore;
-        public UserScore UserScore {
+        public UserScore UserScore
+        {
             get => _userScore;
             set
             {
@@ -15,7 +16,8 @@ namespace MarcadorCanastra.ViewModels
             } 
         }
         
-        public int TotalCardsInHand {
+        public int TotalCardsInHand
+        {
             get => _userScore.TotalCardsInHand;
             set
             {
@@ -24,11 +26,36 @@ namespace MarcadorCanastra.ViewModels
             }
         }
 
+        private string _canastraLimpaLabel;
+        public string CanastraLimpaLabel
+        {
+            get => _canastraLimpaLabel;
+            set
+            {
+                _canastraLimpaLabel = value;
+                OnPropertyChanged(nameof(CanastraLimpaLabel));
+            }
+        }
 
+        private string _canastraSujaLabel;
+        public string CanastraSujaLabel
+        {
+            get => _canastraSujaLabel;
+            set
+            {
+                _canastraSujaLabel = value;
+                OnPropertyChanged(nameof(CanastraSujaLabel));
+            }
+        }
+
+        const string CANASTRALIMPA = "Canastra Limpa";
+        const string CANASTRASUJA = "Canastra Suja";
 
         public NewUserScoreViewModel()
         {
             _userScore = new UserScore(new User { Name = "Jorge"});
+            _canastraLimpaLabel = CANASTRALIMPA;
+            _canastraSujaLabel = CANASTRASUJA;
         }
 
         public void SetBatida(bool bateu)
@@ -40,13 +67,16 @@ namespace MarcadorCanastra.ViewModels
         public void SetCanastraLimpa(int value)
         {
             _userScore.TotalCanastraLimpa = value;
+            _canastraLimpaLabel = CANASTRALIMPA + " (" + value.ToString() + ")";
             OnPropertyChanged(nameof(UserScore));
+            OnPropertyChanged(nameof(CanastraLimpaLabel));
         }
 
         public void SetCanastraSuja(int value)
         {
             _userScore.TotalCanastraSuja = value;
-            OnPropertyChanged(nameof(UserScore));
+            _canastraSujaLabel = CANASTRASUJA + " (" + value.ToString() + ")";
+            OnPropertyChanged(nameof(CanastraSujaLabel));
         }
 
 

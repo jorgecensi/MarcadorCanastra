@@ -21,7 +21,7 @@ namespace MarcadorCanastra.Views
         {
             var layout = (BindableObject)sender;
             var item = (Game)layout.BindingContext;
-           // await Navigation.PushAsync(new GameDetailPage(new GameDetailViewModel(item)));
+            await Navigation.PushAsync(new GameDetailPage(new GameDetailViewModel(item)));
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
