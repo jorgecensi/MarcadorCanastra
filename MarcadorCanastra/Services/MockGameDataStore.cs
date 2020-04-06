@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MarcadorCanastra.Models;
 
@@ -43,19 +44,24 @@ namespace MarcadorCanastra.Services
             };
         }
 
-        public Task<bool> AddGameAsync(Game game)
+        public async Task<bool> AddGameAsync(Game game)
         {
-            throw new NotImplementedException();
+            games.Add(game);
+
+            return await Task.FromResult(true);
         }
 
-        public Task<bool> DeleteGameAsync(string id)
+        public async Task<bool> DeleteGameAsync(string id)
         {
-            throw new NotImplementedException();
+            var oldGame = games.Where((Game arg) => arg.Id == id).FirstOrDefault();
+            games.Remove(oldGame);
+
+            return await Task.FromResult(true);
         }
 
-        public Task<Game> GetGameAsync(string id)
+        public async Task<Game> GetGameAsync(string id)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(games.FirstOrDefault(s => s.Id == id));
         }
 
         public async Task<IEnumerable<Game>> GetGamesAsync(bool forceRefresh = false)
@@ -63,9 +69,11 @@ namespace MarcadorCanastra.Services
             return await Task.FromResult(games);
         }
 
-        public Task<bool> UpdateGameAsync(Game game)
+        public async Task<bool> UpdateGameAsync(Game game)
         {
-            throw new NotImplementedException();
+            games.Add(game);
+
+            return await Task.FromResult(true);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace MarcadorCanastra.Models
     {
         public string Id { get; set; }
         public List<User> Users { get; set; } = new List<User>();
-        public List<Round> Rounds { get; set; }
+        public List<Round> Rounds { get; set; } = new List<Round>();
         public int FinalScorePlayer1
         {
             get
