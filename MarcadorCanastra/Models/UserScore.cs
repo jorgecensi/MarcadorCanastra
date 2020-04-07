@@ -15,13 +15,15 @@
         public int TotalCanastraLimpa { get; set; }
         public int TotalCanastraSuja { get; set; }
         public int TotalCardsInHand { get; set; }
+        public Game Game { get; set; }
 
         public UserScore()
         {
 
         }
-        public UserScore(User user)
+        public UserScore(User user, Game game)
         {
+            Game = game;
             User = user;
             Total = 0;
         }

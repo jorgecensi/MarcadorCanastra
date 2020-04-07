@@ -12,15 +12,13 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
+            <Label Text="Jogadores" FontSize="Medium" />
             <Entry Text="{Binding Player1Name}"
                    d:Text="Jogador 1"
-                   Placeholder="Jogador 1"
-                   FontSize="Small" />            
+                   Placeholder="Jogador 1" />            
             <Editor Text="{Binding Player2Name}"
                     d:Text="Jogador 2"
                     Placeholder="Jogador 2"
-                    FontSize="Small"
                     Margin="0" />
         </StackLayout>
     </ContentPage.Content>

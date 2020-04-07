@@ -5,6 +5,8 @@ namespace MarcadorCanastra.ViewModels
 {
     public class NewUserScoreViewModel:BaseViewModel
     {
+        private Game _game;
+        public Game Game { get => _game; }
         private UserScore _userScore;
         public UserScore UserScore
         {
@@ -51,9 +53,11 @@ namespace MarcadorCanastra.ViewModels
         const string CANASTRALIMPA = "Canastra Limpa";
         const string CANASTRASUJA = "Canastra Suja";
 
-        public NewUserScoreViewModel(User user)
+        public NewUserScoreViewModel(User user, Game game, int playerNumber)
         {
-            _userScore = new UserScore(user);
+            _game = game;
+            _userScore = new UserScore(user, game);
+            _userScore.PlayerNumber = playerNumber;
             _canastraLimpaLabel = CANASTRALIMPA;
             _canastraSujaLabel = CANASTRASUJA;
         }
@@ -76,6 +80,7 @@ namespace MarcadorCanastra.ViewModels
         {
             _userScore.TotalCanastraSuja = value;
             _canastraSujaLabel = CANASTRASUJA + " (" + value.ToString() + ")";
+            OnPropertyChanged(nameof(UserScore));
             OnPropertyChanged(nameof(CanastraSujaLabel));
         }
 

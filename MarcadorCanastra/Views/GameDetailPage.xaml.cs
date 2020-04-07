@@ -32,12 +32,12 @@ namespace MarcadorCanastra.Views
         async void AddPlayer1Points_Clicked(object sender, EventArgs e)
         {
             var user = viewModel.Game.Player1;
-            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(user)));
+            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(viewModel.Game, user, 1)));
         }
         async void AddPlayer2Points_Clicked(object sender, EventArgs e)
         {
             var user = viewModel.Game.Player2;
-            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(user)));
+            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(viewModel.Game, user, 2)));
         }
     }
 }

@@ -7,26 +7,13 @@ namespace MarcadorCanastra.Models
     public class Round
     {
         public int RoundNumber { get; set; }
-        public List<UserScore> Scores { get; set; } = new List<UserScore>();
-
-        public int Player1Score
-        {
-            get 
+        public UserScore Player1Score { get; set; }
+        public UserScore Player2Score { get; set; }
+        public bool IsClosed
+        { get
             {
-                return Scores.Single(x => x.PlayerNumber == 1).Total;
+                return Player1Score != null && Player2Score != null;
             }
-        }
-        public int Player2Score
-        {
-            get
-            {
-                return Scores.Single(x => x.PlayerNumber == 2).Total;
-            }
-        }
-
-        public Round()
-        {
-
         }
     }
 }

@@ -84,7 +84,8 @@
             <Button Text="Salvar"
                     Visual="Material"
                     Grid.Row="5"
-                    Grid.ColumnSpan="2"/>
+                    Grid.ColumnSpan="2"
+                    Clicked="Save_Clicked"/>
 
         </Grid>
 

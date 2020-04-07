@@ -30,12 +30,42 @@
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
                                FontSize="16" />
-                        <Label
-                            Text="{Binding Description}"
+                        <Grid>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                            Text="{Binding Player1.Name}"
                             d:Text="Item descripton"
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Text="{Binding FinalScorePlayer1}"
+                            d:Text="Item descripton"
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="20" />
+                        
+                        <Label
+                            Grid.Row="0"
+                                Grid.Column="1"
+                            Text="{Binding Player2.Name}"
+                            d:Text="Item descripton"
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding FinalScorePlayer2}"
+                            d:Text="Item descripton"
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="20" />
+                        </Grid>
+                        
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected">
                             </TapGestureRecognizer>

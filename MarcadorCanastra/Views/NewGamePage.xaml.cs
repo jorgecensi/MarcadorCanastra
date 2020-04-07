@@ -24,7 +24,9 @@ namespace MarcadorCanastra.Views
             
             var game = new Game(player1, player2);
             MessagingCenter.Send(this, "AddGame", game);
+            
             await Navigation.PopModalAsync();
+
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)

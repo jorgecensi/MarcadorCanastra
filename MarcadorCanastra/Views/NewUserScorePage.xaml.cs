@@ -10,11 +10,12 @@ namespace MarcadorCanastra.Views
         public NewUserScoreViewModel ViewModel { get; set; }
         
 
-        public NewUserScorePage(User user)
+        public NewUserScorePage(Game game, User user, int playerNumber)
         {
             InitializeComponent();
             
-            BindingContext = ViewModel = new NewUserScoreViewModel(user);
+            BindingContext = ViewModel = new NewUserScoreViewModel(user, game, playerNumber);
+            
         }
 
         void OnCanastraLimpaStepperValueChanged(object sender, ValueChangedEventArgs e)
@@ -32,6 +33,11 @@ namespace MarcadorCanastra.Views
         void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             ViewModel.SetBatida(e.Value);
+        }
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "AddGameScore", ViewModel.UserScore);
+            await Navigation.PopModalAsync();
         }
     }
 }
