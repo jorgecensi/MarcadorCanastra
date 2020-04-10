@@ -40,4 +40,5 @@ namespace MarcadorCanastra.ViewModels
             return collection;
         }
     }
+    
 }

@@ -39,5 +39,6 @@ namespace MarcadorCanastra.Views
             MessagingCenter.Send(this, "AddGameScore", ViewModel.UserScore);
             await Navigation.PopModalAsync();
         }
+        
     }
 }

@@ -14,14 +14,14 @@ namespace MarcadorCanastra.Models
         {
             get
             {
-                return Rounds.Sum(x => x.Player1Score.Total);
+                return Rounds.Sum(x => x.Player1Score?.Total??0) ;
             }
         }
         public int FinalScorePlayer2
         {
             get
             {
-                return Rounds.Sum(x => x.Player2Score.Total);
+                return Rounds.Sum(x => x.Player2Score?.Total??0);
             }
         }
 
