@@ -6,7 +6,8 @@
              xmlns:models="clr-namespace:MarcadorCanastra.Models"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.GameDetailPage"
-             Title="{Binding Title}">    
+             Title="{Binding Title}">
+    
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Data do jogo:"               
                FontSize="Medium" />
@@ -33,7 +34,7 @@
             
             <ListView
                 Grid.Row="1"
-                ItemsSource="{Binding Rounds}
+                ItemsSource="{Binding Game.Rounds}
                 ">
                 <d:ListView.ItemsSource>
                     <x:Array Type="{x:Type models:Round}">
@@ -69,6 +70,7 @@
                 </ListView.ItemTemplate>
 
             </ListView>
+                
             <Grid Grid.Row="2">
                 <Label Text="Total"
                         Grid.Column="0"/>

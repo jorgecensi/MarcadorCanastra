@@ -25,6 +25,12 @@ namespace MarcadorCanastra.ViewModels
                 Games.Add(newGame);
                 await GameDataStore.AddGameAsync(newGame);
             });
+            MessagingCenter.Subscribe<NewUserScorePage, UserScore>(this, "AddGameScore", async (obj, userScore) =>
+            {
+                var newUserScore = userScore as UserScore;
+                await GameDataStore.AddGameScoreAsync(newUserScore);
+                
+            });
         }
 
         async Task ExecuteLoadGamesCommand()

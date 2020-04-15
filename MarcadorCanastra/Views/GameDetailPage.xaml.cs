@@ -39,9 +39,13 @@ namespace MarcadorCanastra.Views
             var user = viewModel.Game.Player2;
             await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(viewModel.Game, user, 2)));
         }
-        protected override void OnDisappearing()
+       
+        protected override async void OnAppearing()
         {
-            MessagingCenter.Unsubscribe<NewUserScorePage, UserScore>(this, "AddGameScore");
+            base.OnAppearing();
+            await (BindingContext as GameDetailViewModel).RefreshRoundList();
         }
+
+
     }
 }
