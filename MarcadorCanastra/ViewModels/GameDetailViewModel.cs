@@ -18,16 +18,14 @@ namespace MarcadorCanastra.ViewModels
             {
                 _game = value;
                 OnPropertyChanged(nameof(Game));
+                OnPropertyChanged(nameof(Rounds));
             }
         }
 
-        private ObservableCollection<Round> _rounds { get; set; } = new ObservableCollection<Round>();
+        
         public ObservableCollection<Round> Rounds {
-            get => _rounds;
-            set {
-                _rounds = value;
-                OnPropertyChanged(nameof(Rounds));
-                 }
+            get => new ObservableCollection<Round>(_game.Rounds);
+            
         } 
     
         public GameDetailViewModel(Game game = null)
@@ -38,14 +36,7 @@ namespace MarcadorCanastra.ViewModels
 
         }
 
-        public  async Task RefreshRoundList()
-        {
-            
-            foreach (var round in Game.Rounds)
-            {
-                Rounds.Add(round);
-            }
-        }
+        
 
     }
 

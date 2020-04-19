@@ -5,7 +5,8 @@ namespace MarcadorCanastra.ViewModels
 {
     public class NewUserScoreViewModel:BaseViewModel
     {
-
+        private Game _game;
+        private GameDetailViewModel _gameDetailViewModel;
         private Round _round;
         public Round Round
         {
@@ -14,6 +15,7 @@ namespace MarcadorCanastra.ViewModels
             {
                 _round = value;
                 OnPropertyChanged(nameof(Round));
+                OnPropertyChanged(nameof(_gameDetailViewModel.Game));
             }
         }
 
@@ -87,13 +89,15 @@ namespace MarcadorCanastra.ViewModels
         const string CANASTRALIMPA = "Canastra Limpa";
         const string CANASTRASUJA = "Canastra Suja";
 
-        public NewUserScoreViewModel(Game game)
+        public NewUserScoreViewModel(GameDetailViewModel viewModel)
         {
+            _game = viewModel.Game;
+            _gameDetailViewModel = viewModel;
             _round = new Round()
             {
-                Game = game,
-                Player1Score = new UserScore(game.Player1, game) { PlayerNumber = 1 },
-                Player2Score = new UserScore(game.Player2, game) { PlayerNumber = 2 }
+                Game = viewModel.Game,
+                Player1Score = new UserScore(viewModel.Game.Player1, viewModel.Game) { PlayerNumber = 1 },
+                Player2Score = new UserScore(viewModel.Game.Player2, viewModel.Game) { PlayerNumber = 2 }
             };
             
             
@@ -101,6 +105,10 @@ namespace MarcadorCanastra.ViewModels
             _canastraSujaLabel = CANASTRASUJA;
             _canastraLimpaLabel2 = CANASTRALIMPA;
             _canastraSujaLabel2 = CANASTRASUJA;
+        }
+        public void Salva()
+        {
+            _gameDetailViewModel.Game = _game;
         }
 
         public void SetBatida(bool bateu)

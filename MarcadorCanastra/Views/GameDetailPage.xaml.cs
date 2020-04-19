@@ -31,15 +31,11 @@ namespace MarcadorCanastra.Views
 
         async void AddPlayer1Points_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(viewModel.Game)));
+            await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(viewModel)));
         }
         
        
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await (BindingContext as GameDetailViewModel).RefreshRoundList();
-        }
+        
 
 
     }

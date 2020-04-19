@@ -32,44 +32,29 @@
                         Grid.Column="2"/>
             </Grid>
             
-            <ListView
+            <CollectionView
                 Grid.Row="1"
-                ItemsSource="{Binding Game.Rounds}
+                ItemsSource="{Binding Rounds}
                 ">
-                <d:ListView.ItemsSource>
-                    <x:Array Type="{x:Type models:Round}">
-                        <models:Round RoundNumber="1"
-                                      Player1Score ="500"
-                                      Player2Score ="600"/>
-                        <models:Round RoundNumber="2"
-                                      Player1Score ="200"
-                                      Player2Score ="300"/>
-                        <models:Round RoundNumber="3"
-                                      Player1Score ="100"
-                                      Player2Score ="700"/>
-                        <models:Round RoundNumber="4"
-                                      Player1Score ="800"
-                                      Player2Score ="100"/>
-                            
-                        
-                    </x:Array>
-                </d:ListView.ItemsSource>
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Round">
-                        <ViewCell>
-                            <Grid>
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
                                 <Label Text="{Binding RoundNumber}"
+                                       
                                        Grid.Column="0"/>
                                 <Label Text="{Binding Player1Score.Total}"
+                                       
                                        Grid.Column="1"/>
                                 <Label Text="{Binding Player2Score.Total}"
+                                       
                                        Grid.Column="2"/>
                             </Grid>
-                        </ViewCell>
+                        
                     </DataTemplate>
-                </ListView.ItemTemplate>
+                </CollectionView.ItemTemplate>
 
-            </ListView>
+            </CollectionView>
                 
             <Grid Grid.Row="2">
                 <Label Text="Total"

@@ -10,11 +10,11 @@ namespace MarcadorCanastra.Views
         public NewUserScoreViewModel ViewModel { get; set; }
         
 
-        public NewUserScorePage(Game game)
+        public NewUserScorePage(GameDetailViewModel viewModel)
         {
             InitializeComponent();
             
-            BindingContext = ViewModel = new NewUserScoreViewModel(game);
+            BindingContext = ViewModel = new NewUserScoreViewModel(viewModel);
             
         }
 
@@ -51,6 +51,7 @@ namespace MarcadorCanastra.Views
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddRound", ViewModel.Round);
+            ViewModel.Salva();
             await Navigation.PopModalAsync();
         }
         
