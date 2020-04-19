@@ -12,7 +12,7 @@ namespace MarcadorCanastra.Services
         Task<bool> DeleteGameAsync(string id);
         Task<T> GetGameAsync(string id);
         Task<IEnumerable<T>> GetGamesAsync(bool forceRefresh = false);
-        Task<bool> AddGameScoreAsync(UserScore userScore);
         
+        Task<bool> AddRoundAsync(Round round);
     }
 }

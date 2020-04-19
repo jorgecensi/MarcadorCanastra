@@ -9,11 +9,8 @@ namespace MarcadorCanastra.Models
         public int RoundNumber { get; set; }
         public UserScore Player1Score { get; set; }
         public UserScore Player2Score { get; set; }
-        public bool IsClosed
-        { get
-            {
-                return Player1Score != null && Player2Score != null;
-            }
-        }
+        public Game Game { get; set; }
+
+
     }
 }

@@ -30,9 +30,6 @@ namespace MarcadorCanastra.ViewModels
                  }
         } 
     
-        
-        
-
         public GameDetailViewModel(Game game = null)
         {
             Title = game?.Date.ToString();

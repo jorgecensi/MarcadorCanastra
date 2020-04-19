@@ -7,6 +7,9 @@
              x:Class="MarcadorCanastra.Views.NewUserScorePage"
              Title="{Binding UserScore.User.Name}">    
     <ContentPage.Content>
+    <StackLayout Margin="20" Spacing="20">
+        <Label Text = "{Binding Round.Player1Score.User.Name}"
+               d:Text="Player 1"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -31,6 +34,7 @@
                       CheckedChanged="CheckBox_CheckedChanged"
                       />
             <Label Text="{Binding CanastraLimpaLabel}"
+                   d:Text="Canastra Limpa (1)"
                    FontSize="Medium"
                    Visual="Material"
                    Grid.Row="1"
@@ -46,6 +50,7 @@
                      Grid.Column="1"/>
             
             <Label Text="{Binding CanastraSujaLabel}"
+                   d:Text="Canastra Suja (1)"
                    Visual="Material"
                    FontSize="Medium"
                    Grid.Row="2"
@@ -75,7 +80,89 @@
                    FontSize="Medium"
                    Grid.Row="4"
                    Grid.Column="0"/>
-            <Label Text="{Binding UserScore.Total}"
+            <Label Text="{Binding Round.Player1Score.Total}"
+                   d:Text="5000"
+                   Visual="Material"
+                   FontSize="Large"
+                   Grid.Row="4"
+                   Grid.Column="1"/>            
+            
+
+        </Grid>
+        <BoxView HeightRequest="1" WidthRequest="1" BackgroundColor="Black"/>
+        <Label Text = "{Binding Round.Player2Score.User.Name}"
+               d:Text="Player 2"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Batida"
+                   FontSize="Medium"
+                   Visual="Material"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
+
+            <CheckBox Grid.Row="0"
+                      Grid.Column="1"
+                      Visual="Material"
+                      CheckedChanged="CheckBox2_CheckedChanged"
+                      />
+            <Label Text="{Binding CanastraLimpaLabel2}"
+                   d:Text="Canastra Limpa (1)"
+                   FontSize="Medium"
+                   Visual="Material"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   />
+            <Stepper Minimum="0"
+                 Increment="1"
+                     Visual="Material"
+                 HorizontalOptions="Center"
+                     
+                 ValueChanged="OnCanastraLimpa2StepperValueChanged"
+                     Grid.Row="1"
+                     Grid.Column="1"/>
+            
+            <Label Text="{Binding CanastraSujaLabel2}"
+                   d:Text="Canastra Suja (1)"
+                   Visual="Material"
+                   FontSize="Medium"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
+            <Stepper Minimum="0"
+                     Visual="Material"
+                 Increment="1"
+                 HorizontalOptions="Center"
+                     ValueChanged="OnCanastraSuja2StepperValueChanged"
+                     Grid.Row="2"
+                     Grid.Column="1"/>
+            
+            <Label Text="Total cartas menos cartas na mão"
+                   Visual="Material"
+                   FontSize="Medium"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   />
+            <Entry Text="{Binding TotalCardsInHand2}"
+                   d:Text="25"
+                   Visual="Material"
+                   FontSize="Small"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+            <Label Text="Pontuação Total"
+                   Visual="Material"
+                   FontSize="Medium"
+                   Grid.Row="4"
+                   Grid.Column="0"/>
+            <Label Text="{Binding Round.Player2Score.Total}"
                    d:Text="5000"
                    Visual="Material"
                    FontSize="Large"
@@ -88,6 +175,9 @@
                     Clicked="Save_Clicked"/>
 
         </Grid>
+    </StackLayout>
+        
+
 
        
     </ContentPage.Content>

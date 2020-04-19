@@ -10,11 +10,11 @@ namespace MarcadorCanastra.Views
         public NewUserScoreViewModel ViewModel { get; set; }
         
 
-        public NewUserScorePage(Game game, User user, int playerNumber)
+        public NewUserScorePage(Game game)
         {
             InitializeComponent();
             
-            BindingContext = ViewModel = new NewUserScoreViewModel(user, game, playerNumber);
+            BindingContext = ViewModel = new NewUserScoreViewModel(game);
             
         }
 
@@ -23,20 +23,34 @@ namespace MarcadorCanastra.Views
             var value = Convert.ToInt32(e.NewValue);
             ViewModel.SetCanastraLimpa(value);
         }
+        void OnCanastraLimpa2StepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            var value = Convert.ToInt32(e.NewValue);
+            ViewModel.SetCanastraLimpa2(value);
+        }
 
         void OnCanastraSujaStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             var value = Convert.ToInt32(e.NewValue);
             ViewModel.SetCanastraSuja(value);
         }
+        void OnCanastraSuja2StepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            var value = Convert.ToInt32(e.NewValue);
+            ViewModel.SetCanastraSuja2(value);
+        }
 
         void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             ViewModel.SetBatida(e.Value);
         }
+        void CheckBox2_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            ViewModel.SetBatida2(e.Value);
+        }
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddGameScore", ViewModel.UserScore);
+            MessagingCenter.Send(this, "AddRound", ViewModel.Round);
             await Navigation.PopModalAsync();
         }
         

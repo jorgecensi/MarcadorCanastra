@@ -39,46 +39,17 @@ namespace MarcadorCanastra.Models
             Date = DateTime.Now;
         }
 
-        public void AddScore(UserScore userScore)
+        
+
+        public void AddRound(Round round)
         {
+            Rounds.Add(round);
 
-            var openRound = Rounds.Where(x => !x.IsClosed).FirstOrDefault();
-            if (openRound == null)
-            {
-                var newRound = new Round();
-                newRound.RoundNumber = Rounds.Count() + 1;
-
-                if (userScore.PlayerNumber == 1)
-                {
-                    newRound.Player1Score = userScore;
-                }
-                else
-                {
-                    newRound.Player2Score = userScore;
-                }
-
-                Rounds.Add(newRound);
-            }
-            else
-            {
-                var roundToUpdate = Rounds
-                    .Where(x => x.RoundNumber == openRound.RoundNumber)
-                    .FirstOrDefault();
-                if (userScore.PlayerNumber == 1)
-                {
-                    roundToUpdate.Player1Score = userScore;
-                }
-                else
-                {
-                    roundToUpdate.Player2Score = userScore;
-                }
-
-
-            }
+            
 
         }
 
-        
+
     }
 
 }

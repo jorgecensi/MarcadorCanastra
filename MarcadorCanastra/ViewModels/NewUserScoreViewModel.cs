@@ -5,26 +5,39 @@ namespace MarcadorCanastra.ViewModels
 {
     public class NewUserScoreViewModel:BaseViewModel
     {
-        private Game _game;
-        public Game Game { get => _game; }
-        private UserScore _userScore;
-        public UserScore UserScore
+
+        private Round _round;
+        public Round Round
         {
-            get => _userScore;
+            get => _round;
             set
             {
-                _userScore = value;
-                OnPropertyChanged(nameof(UserScore));
-            } 
+                _round = value;
+                OnPropertyChanged(nameof(Round));
+            }
         }
+
+        
         
         public int TotalCardsInHand
         {
-            get => _userScore.TotalCardsInHand;
+
+            get => _round.Player1Score.TotalCardsInHand;
             set
             {
-                _userScore.TotalCardsInHand = value;
-                OnPropertyChanged(nameof(UserScore));
+                _round.Player1Score.TotalCardsInHand = value;
+                OnPropertyChanged(nameof(Round));
+            }
+        }
+
+        public int TotalCardsInHand2
+        {
+
+            get => _round.Player2Score.TotalCardsInHand;
+            set
+            {
+                _round.Player2Score.TotalCardsInHand = value;
+                OnPropertyChanged(nameof(Round));
             }
         }
 
@@ -49,48 +62,102 @@ namespace MarcadorCanastra.ViewModels
                 OnPropertyChanged(nameof(CanastraSujaLabel));
             }
         }
+        private string _canastraLimpaLabel2;
+        public string CanastraLimpaLabel2
+        {
+            get => _canastraLimpaLabel2;
+            set
+            {
+                _canastraLimpaLabel2 = value;
+                OnPropertyChanged(nameof(CanastraLimpaLabel2));
+            }
+        }
+
+        private string _canastraSujaLabel2;
+        public string CanastraSujaLabel2
+        {
+            get => _canastraSujaLabel2;
+            set
+            {
+                _canastraSujaLabel2 = value;
+                OnPropertyChanged(nameof(CanastraSujaLabel2));
+            }
+        }
 
         const string CANASTRALIMPA = "Canastra Limpa";
         const string CANASTRASUJA = "Canastra Suja";
 
-        public NewUserScoreViewModel(User user, Game game, int playerNumber)
+        public NewUserScoreViewModel(Game game)
         {
-            _game = game;
-            _userScore = new UserScore(user, game);
-            _userScore.PlayerNumber = playerNumber;
+            _round = new Round()
+            {
+                Game = game,
+                Player1Score = new UserScore(game.Player1, game) { PlayerNumber = 1 },
+                Player2Score = new UserScore(game.Player2, game) { PlayerNumber = 2 }
+            };
+            
+            
             _canastraLimpaLabel = CANASTRALIMPA;
             _canastraSujaLabel = CANASTRASUJA;
+            _canastraLimpaLabel2 = CANASTRALIMPA;
+            _canastraSujaLabel2 = CANASTRASUJA;
         }
 
         public void SetBatida(bool bateu)
         {
-            _userScore.IsBatida = bateu;
-            OnPropertyChanged(nameof(UserScore));
+            _round.Player1Score.IsBatida = bateu;
+            OnPropertyChanged(nameof(Round));
+        }
+        public void SetBatida2(bool bateu)
+        {
+            _round.Player2Score.IsBatida = bateu;
+            OnPropertyChanged(nameof(Round));
         }
 
         public void SetCanastraLimpa(int value)
         {
-            _userScore.TotalCanastraLimpa = value;
+            _round.Player1Score.TotalCanastraLimpa = value;
             _canastraLimpaLabel = CANASTRALIMPA + " (" + value.ToString() + ")";
-            OnPropertyChanged(nameof(UserScore));
+            OnPropertyChanged(nameof(Round));
             OnPropertyChanged(nameof(CanastraLimpaLabel));
+        }
+        public void SetCanastraLimpa2(int value)
+        {
+            _round.Player2Score.TotalCanastraLimpa = value;
+            _canastraLimpaLabel2 = CANASTRALIMPA + " (" + value.ToString() + ")";
+            OnPropertyChanged(nameof(Round));
+            OnPropertyChanged(nameof(CanastraLimpaLabel2));
         }
 
         public void SetCanastraSuja(int value)
         {
-            _userScore.TotalCanastraSuja = value;
+            _round.Player1Score.TotalCanastraSuja = value;
             _canastraSujaLabel = CANASTRASUJA + " (" + value.ToString() + ")";
-            OnPropertyChanged(nameof(UserScore));
+            OnPropertyChanged(nameof(Round));
             OnPropertyChanged(nameof(CanastraSujaLabel));
+        }
+
+        public void SetCanastraSuja2(int value)
+        {
+            _round.Player2Score.TotalCanastraSuja = value;
+            _canastraSujaLabel2 = CANASTRASUJA + " (" + value.ToString() + ")";
+            OnPropertyChanged(nameof(Round));
+            OnPropertyChanged(nameof(CanastraSujaLabel2));
         }
 
 
         public void SetCartasNaMao(int value)
         {
-            _userScore.TotalCardsInHand = value;
-            OnPropertyChanged(nameof(UserScore));
+            _round.Player1Score.TotalCardsInHand = value;
+            OnPropertyChanged(nameof(Round));
         }
 
-        
+        public void SetCartasNaMao2(int value)
+        {
+            _round.Player2Score.TotalCardsInHand = value;
+            OnPropertyChanged(nameof(Round));
+        }
+
+
     }
 }

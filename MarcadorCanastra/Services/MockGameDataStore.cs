@@ -67,15 +67,14 @@ namespace MarcadorCanastra.Services
             return await Task.FromResult(true);
         }
 
-       
-
-        public async Task<bool> AddGameScoreAsync(UserScore userScore)
+        public async Task<bool> AddRoundAsync(Round round)
         {
-            var game = userScore.Game;
+            var game = round.Game;
 
             var gameToUpdate = games.Where(x => x.Id == game.Id).FirstOrDefault();
-            gameToUpdate.AddScore(userScore);
-            
+            round.RoundNumber = game.Rounds.Count() + 1;
+            gameToUpdate.AddRound(round);
+
             return await Task.FromResult(true);
 
         }

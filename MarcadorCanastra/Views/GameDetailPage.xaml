@@ -15,10 +15,8 @@
                d:Text="20/03/2020 13:00 PM"
                FontSize="Small" />
         
-        <Button Text="Marcar pontos Jogador 1"
-                Clicked="AddPlayer1Points_Clicked"/>
-        <Button Text="Marcar pontos Jogador 2"
-                Clicked="AddPlayer2Points_Clicked"/>
+        
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -26,9 +24,11 @@
             <Grid Grid.Row="0">
                 <Label Text="Round"
                         Grid.Column="0"/>
-                <Label Text="Jogador 1"
+                <Label Text="{Binding Game.Player1.Name}"
+                       d:Text="Jogador 1"
                         Grid.Column="1"/>
-                <Label Text="Jogador 2"
+                <Label Text="{Binding Game.Player2.Name}"
+                       d:Text="Jogador 2"
                         Grid.Column="2"/>
             </Grid>
             
@@ -80,5 +80,7 @@
                         Grid.Column="2"/>
             </Grid>
         </Grid>
+        <Button Text="Marcar pontos"
+                Clicked="AddPlayer1Points_Clicked"/>
     </StackLayout>
 </ContentPage>
