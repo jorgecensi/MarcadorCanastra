@@ -13,7 +13,7 @@ namespace MarcadorCanastra
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            
             DependencyService.Register<MockGameDataStore>();
             MainPage = new AppShell();
         }

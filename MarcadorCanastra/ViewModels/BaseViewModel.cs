@@ -12,7 +12,7 @@ namespace MarcadorCanastra.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        
         public IGameDataStore<Game> GameDataStore => DependencyService.Get<IGameDataStore<Game>>();
 
         bool isBusy = false;
