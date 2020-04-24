@@ -30,7 +30,12 @@ namespace MarcadorCanastra.ViewModels
             {
                 var newRound = round as Round;
                 await GameDataStore.AddRoundAsync(newRound);
-                await ExecuteLoadGamesCommand();
+                Games.Clear();
+                var games = await GameDataStore.GetGamesAsync(true);
+                foreach (var game in games)
+                {
+                    Games.Add(game);
+                }
 
             });
 
