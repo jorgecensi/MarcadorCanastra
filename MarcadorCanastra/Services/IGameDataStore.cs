@@ -9,8 +9,8 @@ namespace MarcadorCanastra.Services
     {
         Task<bool> AddGameAsync(T game);
         Task<bool> UpdateGameAsync(T game);
-        Task<bool> DeleteGameAsync(string id);
-        Task<T> GetGameAsync(string id);
+        Task<bool> DeleteGameAsync(int id);
+        Task<T> GetGameAsync(int id);
         Task<IEnumerable<T>> GetGamesAsync(bool forceRefresh = false);
         
         Task<bool> AddRoundAsync(Round round);

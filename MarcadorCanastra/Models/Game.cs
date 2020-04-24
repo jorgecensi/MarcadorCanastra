@@ -1,14 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace MarcadorCanastra.Models
 {
     public class Game
     {
-        public string Id { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+
+        [ForeignKey(typeof(User))]
+        public int Player1Id { get; set; }
+        [OneToOne("Player1Id", CascadeOperations = CascadeOperation.All)]
         public User Player1 { get; set; }
+
+        [ForeignKey(typeof(User))]
+        public int Player2Id { get; set; }
+        [OneToOne("Player2Id", CascadeOperations = CascadeOperation.All)]
         public User Player2 { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Round> Rounds { get; set; } = new List<Round>();
         public int FinalScorePlayer1
         {
@@ -33,7 +46,7 @@ namespace MarcadorCanastra.Models
         }
         public Game(User player1, User player2)
         {
-            Id = Guid.NewGuid().ToString();
+            
             Player1 = player1;
             Player2 = player2;
             Date = DateTime.Now;

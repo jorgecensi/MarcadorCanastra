@@ -18,30 +18,30 @@ namespace MarcadorCanastra.Services
 
             var game1 = new Game(user1, user2)
             {
-                Id = Guid.NewGuid().ToString(),                
+                Id = 1,                
                 Date = new DateTime(2020, 03, 20)
             };
 
             var game2 = new Game(user1, user2)
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = 2,
                 Date = new DateTime(2020, 03, 21)
             };
 
             var game3 = new Game(user1, user2)
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = 3,
                 Date = new DateTime(2020, 03, 22)
             };
 
-            var userscore1 = new UserScore(user1,game1) { PlayerNumber = 1, IsBatida = true, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
-            var userscore2 = new UserScore(user2, game1) { PlayerNumber = 2, IsBatida = false, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
+            var userscore1 = new UserScore(user1) { PlayerNumber = 1, IsBatida = true, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
+            var userscore2 = new UserScore(user2) { PlayerNumber = 2, IsBatida = false, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
 
-            var userscore3 = new UserScore(user1, game2) { PlayerNumber = 1, IsBatida = true, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
-            var userscore4 = new UserScore(user2, game2) { PlayerNumber = 2, IsBatida = false, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
+            var userscore3 = new UserScore(user1) { PlayerNumber = 1, IsBatida = true, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
+            var userscore4 = new UserScore(user2) { PlayerNumber = 2, IsBatida = false, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
 
-            var userscore5 = new UserScore(user1, game3) { PlayerNumber = 1, IsBatida = true, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
-            var userscore6 = new UserScore(user2, game3) { PlayerNumber = 2, IsBatida = false, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
+            var userscore5 = new UserScore(user1) { PlayerNumber = 1, IsBatida = true, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
+            var userscore6 = new UserScore(user2) { PlayerNumber = 2, IsBatida = false, TotalCanastraLimpa = 1, TotalCanastraSuja = 1, TotalCardsInHand = 10 };
 
             var round1 = new Round { RoundNumber = 1, Player1Score = userscore1, Player2Score = userscore2 };
             var round2 = new Round { RoundNumber = 2, Player1Score = userscore1, Player2Score = userscore2 };
@@ -79,7 +79,7 @@ namespace MarcadorCanastra.Services
 
         }
 
-        public async Task<bool> DeleteGameAsync(string id)
+        public async Task<bool> DeleteGameAsync(int id)
         {
             var oldGame = games.Where((Game arg) => arg.Id == id).FirstOrDefault();
             games.Remove(oldGame);
@@ -87,7 +87,7 @@ namespace MarcadorCanastra.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<Game> GetGameAsync(string id)
+        public async Task<Game> GetGameAsync(int id)
         {
             return await Task.FromResult(games.FirstOrDefault(s => s.Id == id));
         }

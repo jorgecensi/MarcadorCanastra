@@ -3,18 +3,30 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MarcadorCanastra.Services;
 using MarcadorCanastra.Views;
+using MarcadorCanastra.Data;
 
 namespace MarcadorCanastra
 {
     public partial class App : Application
     {
-
+        static MarcadorCanastraDatabase database;
+        public static MarcadorCanastraDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new MarcadorCanastraDatabase();
+                }
+                return database;
+            }
+        }
         public App()
         {
             InitializeComponent();
 
             
-            DependencyService.Register<MockGameDataStore>();
+            DependencyService.Register<GameDataStore>();
             MainPage = new AppShell();
         }
 

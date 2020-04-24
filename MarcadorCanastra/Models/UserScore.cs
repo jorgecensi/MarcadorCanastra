@@ -1,10 +1,26 @@
-﻿namespace MarcadorCanastra.Models
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+
+namespace MarcadorCanastra.Models
 {
     public class UserScore
     {
-        public string Id { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public int PlayerNumber { get; set; }
+
+        [ForeignKey(typeof(User))]
+        public int UserId { get; set; }
+        [OneToOne(CascadeOperations = CascadeOperation.All)]        
         public User User { get; set; }
+
+
+        //[ForeignKey(typeof(Round))]
+        //public int RoundId { get; set; }
+        //[ManyToOne]
+        //public Round Round { get; set; }
+
+
         public int Total {
             get
             {
@@ -15,15 +31,15 @@
         public int TotalCanastraLimpa { get; set; }
         public int TotalCanastraSuja { get; set; }
         public int TotalCardsInHand { get; set; }
-        public Game Game { get; set; }
+        
 
         public UserScore()
         {
 
         }
-        public UserScore(User user, Game game)
+        public UserScore(User user)
         {
-            Game = game;
+           
             User = user;
             Total = 0;
         }

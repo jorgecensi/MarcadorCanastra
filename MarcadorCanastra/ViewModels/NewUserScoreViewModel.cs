@@ -96,8 +96,8 @@ namespace MarcadorCanastra.ViewModels
             _round = new Round()
             {
                 Game = viewModel.Game,
-                Player1Score = new UserScore(viewModel.Game.Player1, viewModel.Game) { PlayerNumber = 1 },
-                Player2Score = new UserScore(viewModel.Game.Player2, viewModel.Game) { PlayerNumber = 2 }
+                Player1Score = new UserScore(viewModel.Game.Player1) { PlayerNumber = 1 },
+                Player2Score = new UserScore(viewModel.Game.Player2) { PlayerNumber = 2 }
             };
             
             
