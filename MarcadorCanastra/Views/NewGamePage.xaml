@@ -8,7 +8,7 @@
              Title="Novo Jogo"
              Visual="Material">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Cancelar" Clicked="Cancel_Clicked" />
         
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
