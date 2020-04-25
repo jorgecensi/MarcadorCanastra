@@ -10,11 +10,11 @@ namespace MarcadorCanastra.Views
     {
         public NewGameViewModel viewModel { get; set; }
 
-        public NewGamePage()
+        public NewGamePage(Game lastGame)
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new NewGameViewModel();            
+            BindingContext = viewModel = new NewGameViewModel( lastGame);            
         }
 
         async void Save_Clicked(object sender, EventArgs e)

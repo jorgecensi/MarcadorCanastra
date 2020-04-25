@@ -30,10 +30,12 @@
                    Grid.Row="0"
                    Grid.Column="0"/>
 
-            <CheckBox Grid.Row="0"
+            <Switch Grid.Row="0"
+                    OnColor="LimeGreen"
                       Grid.Column="1"
+                    HorizontalOptions="Center"
+                      Toggled="Switch_Toggled"
                       
-                      CheckedChanged="CheckBox_CheckedChanged"
                       />
             <Label Text="{Binding CanastraLimpaLabel}"
                    d:Text="Canastra Limpa (1)"
@@ -113,10 +115,12 @@
                    Grid.Row="0"
                    Grid.Column="0"/>
 
-            <CheckBox Grid.Row="0"
+            <Switch Grid.Row="0"
+                    OnColor="LimeGreen"
                       Grid.Column="1"
                       Visual="Material"
-                      CheckedChanged="CheckBox2_CheckedChanged"
+                    HorizontalOptions="Center"
+                    Toggled="Switch_Toggled2"
                       />
             <Label Text="{Binding CanastraLimpaLabel2}"
                    d:Text="Canastra Limpa (1)"
