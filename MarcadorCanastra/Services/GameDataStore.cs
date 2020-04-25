@@ -29,7 +29,6 @@ namespace MarcadorCanastra.Services
             var game = round.Game;
 
             var gameToUpdate = games.Where(x => x.Id == game.Id).FirstOrDefault();
-            round.RoundNumber = game.Rounds.Count() + 1;
             gameToUpdate.AddRound(round);
             await App.Database.SaveGameAsync(gameToUpdate);
             return await Task.FromResult(true);
