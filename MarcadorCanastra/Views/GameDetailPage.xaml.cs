@@ -33,9 +33,11 @@ namespace MarcadorCanastra.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(viewModel)));
         }
+
         
-       
-        
+
+
+
 
 
     }
