@@ -5,11 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.NewUserScorePage"
-             Title="Marcar Rodada">    
+             Title="Marcar Rodada"
+             Visual="Material">    
     <ContentPage.Content>
     <StackLayout Margin="20" Spacing="20">
         <Label Text = "{Binding Round.Player1Score.User.Name}"
-               d:Text="Player 1"/>
+               d:Text="Player 1"
+               FontSize="Title"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -91,7 +93,8 @@
         </Grid>
         <BoxView HeightRequest="1" WidthRequest="1" BackgroundColor="Black"/>
         <Label Text = "{Binding Round.Player2Score.User.Name}"
-               d:Text="Player 2"/>
+               d:Text="Player 2"
+               FontSize="Title"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -172,13 +175,11 @@
                     Visual="Material"
                     Grid.Row="5"
                     Grid.ColumnSpan="2"
+                    BackgroundColor="LimeGreen"
                     Clicked="Save_Clicked"/>
 
         </Grid>
     </StackLayout>
         
-
-
-       
     </ContentPage.Content>
 </ContentPage>

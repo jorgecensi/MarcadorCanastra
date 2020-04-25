@@ -6,12 +6,15 @@
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.GamesPage"
              Title="{Binding Title}"
-             x:Name="BrowseGamesPage">
+             x:Name="BrowseGamesPage"
+             Visual="Material">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Novo Jogo" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadGamesCommand}">
-        <CollectionView x:Name="GamesCollectionView" ItemsSource="{Binding Games}">
+        <CollectionView x:Name="GamesCollectionView"
+                        ItemsSource="{Binding Games}"
+                        BackgroundColor="LightGray">
             <d:CollectionView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>First Item</x:String>
@@ -24,53 +27,61 @@
             </d:CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding Date}"
-                               d:Text="{Binding .}"
-                               LineBreakMode="NoWrap"
-                               Style="{DynamicResource ListItemTextStyle}"
-                               FontSize="16" />
-                        <Grid>
-                            <Label
-                                Grid.Row="0"
-                                Grid.Column="0"
-                            Text="{Binding Player1.Name}"
-                            d:Text="Item descripton"
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Text="{Binding FinalScorePlayer1}"
-                            d:Text="Item descripton"
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="20" />
+                    <Grid Padding="15,5,15,5" >
+                        <Frame Padding="16"
+                               CornerRadius="8">
+                            <StackLayout >
+                                <Label Text="{Binding Date}"
+                                       d:Text="{Binding .}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="10" />
+                                <Grid>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                    Text="{Binding Player1.Name}"
+                                    d:Text="Nome 1"
+                                    LineBreakMode="NoWrap"
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="15" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Text="{Binding FinalScorePlayer1}"
+                                    TextColor="{StaticResource NavigationPrimary}"
+                                    d:Text="210"
+                                    LineBreakMode="NoWrap"
+                                    HorizontalTextAlignment="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="25" />
                         
-                        <Label
-                            Grid.Row="0"
-                                Grid.Column="1"
-                            Text="{Binding Player2.Name}"
-                            d:Text="Item descripton"
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="{Binding FinalScorePlayer2}"
-                            d:Text="Item descripton"
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="20" />
-                        </Grid>
+                                <Label
+                                    Grid.Row="0"
+                                        Grid.Column="1"
+                                    Text="{Binding Player2.Name}"
+                                    d:Text="Nome 2"
+                                    LineBreakMode="NoWrap"
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="15" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding FinalScorePlayer2}"
+                                    d:Text="400"
+                                    TextColor="{StaticResource NavigationPrimary}"
+                                    LineBreakMode="NoWrap"
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="25"
+                                    FontAttributes="Bold"/>
+                                </Grid>
                         
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

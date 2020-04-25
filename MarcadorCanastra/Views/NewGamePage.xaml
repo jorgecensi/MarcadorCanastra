@@ -5,21 +5,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.NewGamePage"
-             Title="Novo Jogo">
+             Title="Novo Jogo"
+             Visual="Material">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+        
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Jogadores" FontSize="Medium" />
+        <StackLayout Spacing="20"
+                     Padding="15"
+                     VerticalOptions="Center">
+            
             <Entry Text="{Binding Player1Name}"
                    d:Text="Jogador 1"
-                   Placeholder="Jogador 1" />            
+                   Placeholder="Jogador 1"
+                   TextColor="DarkGreen"/>            
             <Editor Text="{Binding Player2Name}"
                     d:Text="Jogador 2"
                     Placeholder="Jogador 2"
-                    Margin="0" />
+                    Margin="0"
+                    TextColor="DarkGreen"/>
+            <Button
+                BackgroundColor="LimeGreen"
+                Text="Jogar"
+                Clicked="Save_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

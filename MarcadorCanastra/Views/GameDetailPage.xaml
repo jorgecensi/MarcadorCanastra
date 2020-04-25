@@ -6,20 +6,16 @@
              xmlns:models="clr-namespace:MarcadorCanastra.Models"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.GameDetailPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Visual="Material">
     
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Data do jogo:"               
-               FontSize="Medium" />
-        <Label Text="{Binding Game.Date}"
-               d:Text="20/03/2020 13:00 PM"
-               FontSize="Small" />
         
-        
-        
-        <Grid>
+        <Grid VerticalOptions="FillAndExpand" > 
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Label Text="Round"
@@ -33,6 +29,7 @@
             </Grid>
             
             <CollectionView
+               
                 Grid.Row="1"
                 ItemsSource="{Binding Rounds}
                 ">
@@ -56,16 +53,24 @@
 
             </CollectionView>
                 
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2"
+                  
+                  >
                 <Label Text="Total"
-                        Grid.Column="0"/>
+                        Grid.Column="0"
+                       VerticalTextAlignment="End"/>
                 <Label Text="{Binding Game.FinalScorePlayer1}"
-                        Grid.Column="1"/>
+                       d:Text="300"
+                        Grid.Column="1"
+                       FontSize="Title"/>
                 <Label Text="{Binding Game.FinalScorePlayer2}"
-                        Grid.Column="2"/>
+                       d:Text="400"
+                        Grid.Column="2"
+                       FontSize="Title"/>
             </Grid>
         </Grid>
         <Button Text="Marcar pontos"
-                Clicked="AddPlayer1Points_Clicked"/>
+                Clicked="AddPlayer1Points_Clicked"
+                BackgroundColor="LimeGreen"/>
     </StackLayout>
 </ContentPage>
