@@ -73,7 +73,7 @@
                    />
             <Entry Text="{Binding TotalCardsInHand}"
                    d:Text="25"
-                   
+                   Keyboard="Numeric"
                    FontSize="Small"
                    Grid.Row="3"
                    Grid.Column="1"/>
@@ -159,6 +159,7 @@
                    Visual="Material"
                    FontSize="Small"
                    Grid.Row="3"
+                   Keyboard="Numeric"
                    Grid.Column="1"/>
             <Label Text="Pontuação Total"
                    Visual="Material"

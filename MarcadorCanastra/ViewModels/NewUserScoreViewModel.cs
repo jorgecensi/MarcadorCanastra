@@ -21,24 +21,24 @@ namespace MarcadorCanastra.ViewModels
 
         
         
-        public int TotalCardsInHand
+        public int? TotalCardsInHand
         {
 
             get => _round.Player1Score.TotalCardsInHand;
             set
             {
-                _round.Player1Score.TotalCardsInHand = value;
+                _round.Player1Score.TotalCardsInHand = value??0;
                 OnPropertyChanged(nameof(Round));
             }
         }
 
-        public int TotalCardsInHand2
+        public int? TotalCardsInHand2
         {
 
             get => _round.Player2Score.TotalCardsInHand;
             set
             {
-                _round.Player2Score.TotalCardsInHand = value;
+                _round.Player2Score.TotalCardsInHand = value??0;
                 OnPropertyChanged(nameof(Round));
             }
         }
