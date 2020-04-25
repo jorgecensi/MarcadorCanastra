@@ -30,7 +30,7 @@ namespace MarcadorCanastra.Models
         public bool IsBatida { get; set; }
         public int TotalCanastraLimpa { get; set; }
         public int TotalCanastraSuja { get; set; }
-        public int TotalCardsInHand { get; set; }
+        public int? TotalCardsInHand { get; set; }
         
 
         public UserScore()
@@ -61,7 +61,7 @@ namespace MarcadorCanastra.Models
         }
         private int PontosTotalCardsLessCardsInHand()
         {
-            return TotalCardsInHand * 10;
+            return TotalCardsInHand??0 * 10;
         }
         public int PontosBatida()
         {

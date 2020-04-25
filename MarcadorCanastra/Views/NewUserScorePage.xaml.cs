@@ -40,20 +40,24 @@ namespace MarcadorCanastra.Views
             ViewModel.SetCanastraSuja2(value);
         }
 
-        void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            ViewModel.SetBatida(e.Value);
-        }
-        void CheckBox2_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            ViewModel.SetBatida2(e.Value);
-        }
+        
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddRound", ViewModel.Round);
             ViewModel.Salva();
             await Navigation.PopModalAsync();
         }
-        
+
+        void Switch_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+            ViewModel.SetBatida(e.Value);
+        }
+
+        void Switch_Toggled2(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+            ViewModel.SetBatida2(e.Value);
+        }
+
+
     }
 }

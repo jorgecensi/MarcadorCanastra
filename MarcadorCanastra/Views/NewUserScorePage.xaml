@@ -30,10 +30,12 @@
                    Grid.Row="0"
                    Grid.Column="0"/>
 
-            <CheckBox Grid.Row="0"
+            <Switch Grid.Row="0"
+                    OnColor="LimeGreen"
                       Grid.Column="1"
+                    HorizontalOptions="Center"
+                      Toggled="Switch_Toggled"
                       
-                      CheckedChanged="CheckBox_CheckedChanged"
                       />
             <Label Text="{Binding CanastraLimpaLabel}"
                    d:Text="Canastra Limpa (1)"
@@ -73,7 +75,7 @@
                    />
             <Entry Text="{Binding TotalCardsInHand}"
                    d:Text="25"
-                   
+                   Keyboard="Numeric"
                    FontSize="Small"
                    Grid.Row="3"
                    Grid.Column="1"/>
@@ -113,10 +115,12 @@
                    Grid.Row="0"
                    Grid.Column="0"/>
 
-            <CheckBox Grid.Row="0"
+            <Switch Grid.Row="0"
+                    OnColor="LimeGreen"
                       Grid.Column="1"
                       Visual="Material"
-                      CheckedChanged="CheckBox2_CheckedChanged"
+                    HorizontalOptions="Center"
+                    Toggled="Switch_Toggled2"
                       />
             <Label Text="{Binding CanastraLimpaLabel2}"
                    d:Text="Canastra Limpa (1)"
@@ -159,6 +163,7 @@
                    Visual="Material"
                    FontSize="Small"
                    Grid.Row="3"
+                   Keyboard="Numeric"
                    Grid.Column="1"/>
             <Label Text="Pontuação Total"
                    Visual="Material"

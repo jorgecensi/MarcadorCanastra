@@ -26,7 +26,8 @@ namespace MarcadorCanastra.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewGamePage()));
+            var lastGame = viewModel.LastGame();
+            await Navigation.PushModalAsync(new NavigationPage(new NewGamePage(lastGame)));
         }
 
         protected override void OnAppearing()

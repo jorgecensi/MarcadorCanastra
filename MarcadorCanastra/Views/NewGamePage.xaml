@@ -8,7 +8,7 @@
              Title="Novo Jogo"
              Visual="Material">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Cancelar" Clicked="Cancel_Clicked" />
         
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
@@ -19,11 +19,13 @@
             <Entry Text="{Binding Player1Name}"
                    d:Text="Jogador 1"
                    Placeholder="Jogador 1"
+                   ClearButtonVisibility="WhileEditing"
                    TextColor="LimeGreen"/>            
-            <Editor Text="{Binding Player2Name}"
+            <Entry Text="{Binding Player2Name}"
                     d:Text="Jogador 2"
                     Placeholder="Jogador 2"
                     Margin="0"
+                    ClearButtonVisibility="WhileEditing"
                     TextColor="LimeGreen"/>
             <Button
                 BackgroundColor="LimeGreen"

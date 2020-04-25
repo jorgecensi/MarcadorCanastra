@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using MarcadorCanastra.Models;
 using MarcadorCanastra.Views;
@@ -39,6 +40,11 @@ namespace MarcadorCanastra.ViewModels
 
             });
 
+        }
+        public Game LastGame()
+        {
+            var game = Games.OrderByDescending(x => x.Date).FirstOrDefault();
+            return game;
         }
 
         async Task ExecuteLoadGamesCommand()
