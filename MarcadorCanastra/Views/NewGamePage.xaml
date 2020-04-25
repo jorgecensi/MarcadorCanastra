@@ -19,12 +19,12 @@
             <Entry Text="{Binding Player1Name}"
                    d:Text="Jogador 1"
                    Placeholder="Jogador 1"
-                   TextColor="DarkGreen"/>            
+                   TextColor="LimeGreen"/>            
             <Editor Text="{Binding Player2Name}"
                     d:Text="Jogador 2"
                     Placeholder="Jogador 2"
                     Margin="0"
-                    TextColor="DarkGreen"/>
+                    TextColor="LimeGreen"/>
             <Button
                 BackgroundColor="LimeGreen"
                 Text="Jogar"
