@@ -177,6 +177,7 @@
                    Grid.Row="4"
                    Grid.Column="1"/>            
             <Button Text="Salvar"
+                    CornerRadius="20"
                     Visual="Material"
                     Grid.Row="5"
                     Grid.ColumnSpan="2"
