@@ -127,10 +127,12 @@
                                         <Label Text="{Binding Player1Score.Total}"
                                                FontSize="Title"
                                                HorizontalTextAlignment="End"
+                                               TextColor="{Binding Player1Color}"
                                                Grid.Column="0"/>
                                         <Label Text="{Binding Player2Score.Total}"
                                                FontSize="Title"
                                                HorizontalTextAlignment="Start"
+                                               TextColor="{Binding Player2Color}"
                                                Grid.Column="2"/>
                                     </Grid>
                         
