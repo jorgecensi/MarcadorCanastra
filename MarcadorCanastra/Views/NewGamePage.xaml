@@ -12,7 +12,7 @@
         
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20"
+        <StackLayout Spacing="30"
                      Padding="15"
                      VerticalOptions="Center">
             

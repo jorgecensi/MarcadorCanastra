@@ -23,11 +23,26 @@ namespace MarcadorCanastra.Models
         [OneToOne("Player1ScoreId",CascadeOperations = CascadeOperation.All)]
         public UserScore Player1Score { get; set; }
 
+        public string Player1Color {
+            get
+            {
+                return Player1Score.Total > Player2Score.Total ? "LimeGreen" : "Black";
+            }
+        }
+
+
         [ForeignKey(typeof(UserScore))]
         public int Player2ScoreId { get; set; }
         [OneToOne("Player2ScoreId", CascadeOperations = CascadeOperation.All)]
         public UserScore Player2Score { get; set; }
-        
+
+        public string Player2Color {
+            get
+            {
+                return Player2Score.Total > Player1Score.Total ? "LimeGreen" : "Black";
+            }
+        }
+
 
 
     }

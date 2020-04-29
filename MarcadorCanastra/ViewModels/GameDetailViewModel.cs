@@ -30,7 +30,7 @@ namespace MarcadorCanastra.ViewModels
     
         public GameDetailViewModel(Game game = null)
         {
-            Title = game?.Date.ToString();
+            Title = $"Jogo: {game?.Date.ToString()} " ;
             Game = game;
             
 

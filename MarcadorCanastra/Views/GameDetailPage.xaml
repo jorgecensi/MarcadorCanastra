@@ -6,77 +6,155 @@
              xmlns:models="clr-namespace:MarcadorCanastra.Models"
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.GameDetailPage"
-             Title="{Binding Title}"
-             Visual="Material">
-    
-    <StackLayout Spacing="20" Padding="15">
-        
-        <Grid VerticalOptions="FillAndExpand" > 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Label Text="Round"
-                        Grid.Column="0"
-                       FontSize="Title"/>
-                <Label Text="{Binding Game.Player1.Name}"
-                       d:Text="Jogador 1"
-                       FontSize="Title"
-                       Grid.Column="1"/>
-                <Label Text="{Binding Game.Player2.Name}"
-                       d:Text="Jogador 2"
-                       FontSize="Title"
-                        Grid.Column="2"/>
-            </Grid>
-            
-            <CollectionView
-               
-                Grid.Row="1"
-                ItemsSource="{Binding Rounds}
-                ">
-                
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                                <Label Text="{Binding RoundNumber}"
-                                       FontSize="Title"
-                                       Grid.Column="0"/>
-                                <Label Text="{Binding Player1Score.Total}"
-                                       FontSize="Title"
-                                       Grid.Column="1"/>
-                                <Label Text="{Binding Player2Score.Total}"
-                                       FontSize="Title"
-                                       Grid.Column="2"/>
-                            </Grid>
-                        
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
+             Title="Jogos"
+             >
+    <NavigationPage.TitleView>
+        <StackLayout Margin="20" Orientation="Horizontal">
 
-            </CollectionView>
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding Title}"
+                d:Text="Game Date"
+                TextColor="White" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="LightGray"
+                 >
+        <StackLayout BackgroundColor="{StaticResource NavigationPrimary}"
+                     HeightRequest="140"
+                     
+                     >
+            <Frame
+                Margin="10"
+                BackgroundColor="White"
+                CornerRadius="10"
                 
-            <Grid Grid.Row="2"
-                  
-                  >
-                <Label Text="Total"
-                        Grid.Column="0"
-                       FontSize="Title"
-                       VerticalTextAlignment="End"/>
-                <Label Text="{Binding Game.FinalScorePlayer1}"
-                       d:Text="300"
-                        Grid.Column="1"
-                       FontAttributes="Bold"
-                       FontSize="Title"/>
-                <Label Text="{Binding Game.FinalScorePlayer2}"
-                       d:Text="400"
-                        Grid.Column="2"
-                       FontAttributes="Bold"
-                       FontSize="Title"/>
-            </Grid>
-        </Grid>
-        <Button Text="Marcar pontos"
-                Clicked="AddPlayer1Points_Clicked"
-                BackgroundColor="LimeGreen"/>
+                TranslationY="50">
+                <StackLayout>
+                    <StackLayout >
+
+                        <Grid HorizontalOptions="FillAndExpand" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"   />
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="15"/>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding Game.Date}"
+                                   d:Text="12/12/2020 3:30 PM"
+                                   Grid.Row="0"
+                                    Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="Small"/>
+
+                            <Label Text="{Binding Game.Player1.Name}"
+                                   d:Text="Name"
+                                   Grid.Row="1"
+                                    Grid.Column="0"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="End"
+                                   FontSize="Title"/>
+                            <Label Text="X"                                   
+                                   Grid.Row="1"
+                                    Grid.Column="1"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   FontSize="Title"/>
+                            <Label Text="{Binding Game.Player2.Name}"
+                                   d:Text="Name2"
+                                   HorizontalTextAlignment="Start"
+                                   Grid.Row="1"
+                                    Grid.Column="2"
+                                   FontAttributes="Bold"
+                                   FontSize="Title"/>
+
+                            
+                            <Label Text="{Binding Game.FinalScorePlayer1}"
+                                   d:Text="300"
+                                   Grid.Row="2"
+                                    Grid.Column="0"
+                                   HorizontalTextAlignment="End"
+                                   FontAttributes="Bold"
+                                   FontSize="Title"/>
+                            <Label Text="{Binding Game.FinalScorePlayer2}"
+                                   d:Text="400"
+                                   Grid.Row="2"
+                                   HorizontalTextAlignment="Start"
+                                    Grid.Column="2"
+                                   FontAttributes="Bold"
+                                   FontSize="Title"/>
+                        </Grid>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </Frame>
+            
+
+        
+        
+        </StackLayout>
+        <StackLayout>
+            <Frame
+            CornerRadius="10"
+                Margin="10"
+                BackgroundColor="White"
+                TranslationY="40">
+                <StackLayout>
+                    
+            
+                        <CollectionView
+                            ItemsSource="{Binding Rounds}"
+                            >
+                
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="150"/>
+                                        </Grid.ColumnDefinitions>
+                                
+                                        <Label Text="{Binding Player1Score.Total}"
+                                               FontSize="Title"
+                                               HorizontalTextAlignment="End"
+                                               TextColor="{Binding Player1Color}"
+                                               Grid.Column="0"/>
+                                        <Label Text="{Binding Player2Score.Total}"
+                                               FontSize="Title"
+                                               HorizontalTextAlignment="Start"
+                                               TextColor="{Binding Player2Color}"
+                                               Grid.Column="2"/>
+                                    </Grid>
+                        
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+                        
+            
+                    
+                </StackLayout>
+            </Frame>
+            
+        </StackLayout>
+        <Button
+                            
+                            CornerRadius="20"
+                            Margin="10"
+                            Text="Marcar pontos"
+                            Visual="Material"
+                            Clicked="AddPlayer1Points_Clicked"
+                            BackgroundColor="LimeGreen"/>    
     </StackLayout>
+    
 </ContentPage>
