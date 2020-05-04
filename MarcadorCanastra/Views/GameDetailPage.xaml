@@ -3,23 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:models="clr-namespace:MarcadorCanastra.Models"
+             
              mc:Ignorable="d"
              x:Class="MarcadorCanastra.Views.GameDetailPage"
              Title="Jogos"
+             Visual="Material"
              >
-    <NavigationPage.TitleView>
-        <StackLayout Margin="20" Orientation="Horizontal">
-
-            <Label
-                FontAttributes="Bold"
-                FontSize="18"
-                HorizontalOptions="CenterAndExpand"
-                Text="{Binding Title}"
-                d:Text="Game Date"
-                TextColor="White" />
-        </StackLayout>
-    </NavigationPage.TitleView>
+    
+    
     <StackLayout BackgroundColor="LightGray"
                  >
         <StackLayout BackgroundColor="{StaticResource NavigationPrimary}"
@@ -31,20 +22,20 @@
                 BackgroundColor="White"
                 CornerRadius="10"
                 
-                TranslationY="50">
+                TranslationY="40">
                 <StackLayout>
                     <StackLayout >
 
                         <Grid HorizontalOptions="FillAndExpand" >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"   />
-                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="30*"   />
+                                <ColumnDefinition Width="110"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="15"/>
-                                <RowDefinition Height="25"/>
-                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
 
                             <Label Text="{Binding Game.Date}"
@@ -54,28 +45,34 @@
                                    Grid.ColumnSpan="3"
                                    FontAttributes="Bold"
                                    HorizontalTextAlignment="Center"
-                                   FontSize="Small"/>
+                                   FontSize="Micro"/>
 
                             <Label Text="{Binding Game.Player1.Name}"
                                    d:Text="Name"
                                    Grid.Row="1"
-                                    Grid.Column="0"
+                                   Grid.Column="0"
                                    FontAttributes="Bold"
                                    HorizontalTextAlignment="End"
-                                   FontSize="Title"/>
+                                   LineBreakMode="TailTruncation"
+                                   WidthRequest="110"
+                                   FontSize="Small"/>
                             <Label Text="X"                                   
                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                   HorizontalOptions="Center"
+                                   Grid.Column="1"
+                                   HorizontalOptions="CenterAndExpand"
+                                   
                                    FontAttributes="Bold"
-                                   FontSize="Title"/>
+                                   FontSize="Small"/>
                             <Label Text="{Binding Game.Player2.Name}"
                                    d:Text="Name2"
                                    HorizontalTextAlignment="Start"
+                                   LineBreakMode="TailTruncation"
+                                   WidthRequest="110"
                                    Grid.Row="1"
-                                    Grid.Column="2"
+                                   Grid.Column="2"
                                    FontAttributes="Bold"
-                                   FontSize="Title"/>
+                                   FontSize="Small"/>
+                            
 
                             
                             <Label Text="{Binding Game.FinalScorePlayer1}"
@@ -117,18 +114,27 @@
                 
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid>
+                                    <Grid HorizontalOptions="FillAndExpand">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="150"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="20*"/>
+                                            <ColumnDefinition Width="100"/>
                                         </Grid.ColumnDefinitions>
                                 
                                         <Label Text="{Binding Player1Score.Total}"
+                                               
                                                FontSize="Title"
                                                HorizontalTextAlignment="End"
                                                TextColor="{Binding Player1Color}"
-                                               Grid.Column="0"/>
+                                               Grid.Column="0"
+                                               />
+                                        <Label Text="-"
+                                               FontSize="Title"
+                                               HorizontalOptions="CenterAndExpand"
+                                               VerticalOptions="Center"
+                                               
+                                               Grid.Column="1"/>
+
                                         <Label Text="{Binding Player2Score.Total}"
                                                FontSize="Title"
                                                HorizontalTextAlignment="Start"
