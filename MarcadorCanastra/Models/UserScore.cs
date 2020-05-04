@@ -61,7 +61,8 @@ namespace MarcadorCanastra.Models
         }
         private int PontosTotalCardsLessCardsInHand()
         {
-            return TotalCardsInHand??0 * 10;
+            var total = TotalCardsInHand ?? 0;
+            return total;
         }
         public int PontosBatida()
         {
