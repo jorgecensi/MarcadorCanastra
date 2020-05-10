@@ -1,5 +1,5 @@
-﻿using System;
-using MarcadorCanastra.Models;
+﻿using MarcadorCanastra.Models;
+using MvvmHelpers;
 
 namespace MarcadorCanastra.ViewModels
 {
@@ -18,8 +18,6 @@ namespace MarcadorCanastra.ViewModels
                 OnPropertyChanged(nameof(_gameDetailViewModel.Game));
             }
         }
-
-        
         
         public int? TotalCardsInHand
         {

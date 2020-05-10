@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using MarcadorCanastra.Models;
-using MarcadorCanastra.Views;
-using Xamarin.Forms;
+﻿using MarcadorCanastra.Models;
+using MvvmHelpers;
 
 namespace MarcadorCanastra.ViewModels
 {
@@ -21,24 +15,15 @@ namespace MarcadorCanastra.ViewModels
                 OnPropertyChanged(nameof(Rounds));
             }
         }
-
         
-        public ObservableCollection<Round> Rounds {
-            get => new ObservableCollection<Round>(_game.Rounds);
-            
+        public ObservableRangeCollection<Round> Rounds {
+            get => new ObservableRangeCollection<Round>(_game.Rounds);
         } 
     
         public GameDetailViewModel(Game game = null)
         {
             Title = $"Jogo: {game?.Date.ToString()} " ;
             Game = game;
-            
-
         }
-
-        
-
     }
-
-    
 }
