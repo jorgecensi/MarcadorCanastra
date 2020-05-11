@@ -36,6 +36,11 @@
                                        LineBreakMode="NoWrap"
                                        FontSize="10" />
                                 <Grid>
+                                     <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".45*"/>
+                                <ColumnDefinition Width=".1*"   />
+                                <ColumnDefinition Width=".45*"/>
+                            </Grid.ColumnDefinitions>
                                     <Label
                                         Grid.Row="0"
                                         Grid.Column="0"
@@ -57,7 +62,7 @@
                         
                                 <Label
                                     Grid.Row="0"
-                                        Grid.Column="1"
+                                        Grid.Column="2"
                                     Text="{Binding Player2.Name}"
                                     d:Text="Nome 2"
                                     LineBreakMode="NoWrap"
@@ -65,7 +70,7 @@
                                     FontSize="15" />
                                 <Label
                                     Grid.Row="1"
-                                    Grid.Column="1"
+                                    Grid.Column="2"
                                     Text="{Binding FinalScorePlayer2}"
                                     d:Text="400"
                                     TextColor="{StaticResource NavigationPrimary}"
