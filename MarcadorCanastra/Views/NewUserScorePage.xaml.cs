@@ -1,5 +1,4 @@
 ﻿using System;
-using MarcadorCanastra.Models;
 using MarcadorCanastra.ViewModels;
 using Xamarin.Forms;
 
@@ -43,20 +42,20 @@ namespace MarcadorCanastra.Views
         
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddRound", ViewModel.Round);
-            ViewModel.Salva();
-            await Navigation.PopModalAsync();
+            if (!ViewModel.Round.Player1Score.IsBatida && !ViewModel.Round.Player2Score.IsBatida)
+            {
+                await DisplayAlert("Ops", "Quem bateu essa rodada?", "OK");
+            }
+            else
+            {
+                MessagingCenter.Send(this, "AddRound", ViewModel.Round);
+                ViewModel.Salva();
+                await Navigation.PopModalAsync();
+            }
+            
         }
 
-        void Switch_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
-        {
-            ViewModel.SetBatida(e.Value);
-        }
-
-        void Switch_Toggled2(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
-        {
-            ViewModel.SetBatida2(e.Value);
-        }
+       
 
 
     }

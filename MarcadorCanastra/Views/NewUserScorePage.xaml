@@ -50,8 +50,9 @@
                             <Switch Grid.Row="1"
                                     OnColor="LimeGreen"
                                       Grid.Column="1"
-                                    HorizontalOptions="Center"
-                                      Toggled="Switch_Toggled"
+                                    HorizontalOptions="Center"                                      
+                                   IsToggled="{Binding Batida1}"
+                                    
                       
                                       />
                             <Label Text="{Binding CanastraLimpaLabel}"
@@ -96,6 +97,8 @@
                                    Keyboard="Numeric"
                                    FontSize="Small"
                                    Grid.Row="4"
+                                   VerticalOptions="Center"
+                                   
                                    Grid.Column="1"/>
                             
                                        
@@ -147,8 +150,8 @@
                             OnColor="LimeGreen"
                               Grid.Column="1"
                               Visual="Material"
-                            HorizontalOptions="Center"
-                            Toggled="Switch_Toggled2"
+                            HorizontalOptions="Center"                            
+                            IsToggled="{Binding Batida2}"
                               />
                     <Label Text="{Binding CanastraLimpaLabel2}"
                            d:Text="Canastra Limpa (1)"
