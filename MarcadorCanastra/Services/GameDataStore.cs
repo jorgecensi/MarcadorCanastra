@@ -37,9 +37,9 @@ namespace MarcadorCanastra.Services
 
         public async Task<bool> DeleteGameAsync(int id)
         {
-            //var oldGame = games.Where((Game arg) => arg.Id == id).FirstOrDefault();
-            //games.Remove(oldGame);
-
+            var game = await App.Database.GetGameAsync(id);
+            await App.Database.DeleteGameAsync(game);
+            
             return await Task.FromResult(true);
         }
 

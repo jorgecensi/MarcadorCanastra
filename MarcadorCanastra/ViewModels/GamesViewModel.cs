@@ -6,6 +6,7 @@ using MarcadorCanastra.Models;
 using MarcadorCanastra.Services;
 using MarcadorCanastra.Views;
 using MvvmHelpers;
+using MvvmHelpers.Commands;
 using Xamarin.Forms;
 
 namespace MarcadorCanastra.ViewModels
@@ -13,7 +14,8 @@ namespace MarcadorCanastra.ViewModels
     public class GamesViewModel:BaseViewModel
     {
         public ObservableRangeCollection<Game> Games { get; set; }
-        public Command LoadGamesCommand { get; set; }
+        public AsyncCommand LoadGamesCommand { get; set; }
+        public AsyncCommand<Game> RemoveGameCommand { get; set; }
 
         public IGameDataStore<Game> GameDataStore => DependencyService.Get<IGameDataStore<Game>>();
 
@@ -21,7 +23,8 @@ namespace MarcadorCanastra.ViewModels
         {
             Title = "Histórico de Jogos";
             Games = new ObservableRangeCollection<Game>();
-            LoadGamesCommand = new Command(async () => await ExecuteLoadGamesCommand());
+            LoadGamesCommand = new AsyncCommand(ExecuteLoadGamesCommand);
+            RemoveGameCommand = new AsyncCommand<Game>(RemoveGame);
 
             MessagingCenter.Subscribe<NewGamePage, Game>(this, "AddGame", async (obj, game) =>
             {
@@ -45,6 +48,28 @@ namespace MarcadorCanastra.ViewModels
             return game;
         }
 
+        async Task RemoveGame(Game game)
+        {
+            IsBusy = true;
+
+            try
+            {
+                
+                await GameDataStore.DeleteGameAsync(game.Id);
+                Games.Clear();
+                var games = await GameDataStore.GetGamesAsync(true);
+                Games.AddRange(games);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
         async Task ExecuteLoadGamesCommand()
         {
             IsBusy = true;
@@ -53,10 +78,7 @@ namespace MarcadorCanastra.ViewModels
             {
                 Games.Clear();
                 var games = await GameDataStore.GetGamesAsync(true);
-                foreach (var game in games)
-                {
-                    Games.Add(game);
-                }
+                Games.AddRange(games);                
             }
             catch (Exception ex)
             {

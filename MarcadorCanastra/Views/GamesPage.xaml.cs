@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using MarcadorCanastra.Models;
 using MarcadorCanastra.ViewModels;
 using Xamarin.Forms;

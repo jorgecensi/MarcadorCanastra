@@ -11,7 +11,7 @@
              >
     
     
-    <StackLayout BackgroundColor="LightGray"
+    <StackLayout 
                  >
         <StackLayout BackgroundColor="{StaticResource NavigationPrimary}"
                      HeightRequest="140"
