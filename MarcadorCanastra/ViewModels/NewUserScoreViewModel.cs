@@ -1,5 +1,5 @@
-﻿using System;
-using MarcadorCanastra.Models;
+﻿using MarcadorCanastra.Models;
+using MvvmHelpers;
 
 namespace MarcadorCanastra.ViewModels
 {
@@ -18,8 +18,6 @@ namespace MarcadorCanastra.ViewModels
                 OnPropertyChanged(nameof(_gameDetailViewModel.Game));
             }
         }
-
-        
         
         public int? TotalCardsInHand
         {
@@ -86,6 +84,40 @@ namespace MarcadorCanastra.ViewModels
             }
         }
 
+
+        public bool Batida1
+        {
+
+            get => _round.Player1Score.IsBatida;
+            set
+            {
+                _round.Player1Score.IsBatida = value;
+                if (value)
+                {
+                    _round.Player2Score.IsBatida = false;
+                }
+                OnPropertyChanged(nameof(Round));
+                OnPropertyChanged(nameof(Batida2));
+            }
+        }
+
+        public bool Batida2
+        {
+
+            get => _round.Player2Score.IsBatida;
+            set
+            {
+                _round.Player2Score.IsBatida = value;
+                if (value)
+                {
+                    _round.Player1Score.IsBatida = false;
+                }
+                
+                OnPropertyChanged(nameof(Round));
+                OnPropertyChanged(nameof(Batida1));
+            }
+        }
+
         const string CANASTRALIMPA = "Canastra Limpa";
         const string CANASTRASUJA = "Canastra Suja";
 
@@ -113,16 +145,7 @@ namespace MarcadorCanastra.ViewModels
             _gameDetailViewModel.Game = _game;
         }
 
-        public void SetBatida(bool bateu)
-        {
-            _round.Player1Score.IsBatida = bateu;
-            OnPropertyChanged(nameof(Round));
-        }
-        public void SetBatida2(bool bateu)
-        {
-            _round.Player2Score.IsBatida = bateu;
-            OnPropertyChanged(nameof(Round));
-        }
+        
 
         public void SetCanastraLimpa(int value)
         {

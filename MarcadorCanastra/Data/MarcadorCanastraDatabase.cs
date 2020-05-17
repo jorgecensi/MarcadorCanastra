@@ -42,12 +42,7 @@ namespace MarcadorCanastra.Data
 
         public async Task<List<Game>> GetGamesAsync()
         {
-            //var users = await Database.Table<User>().ToListAsync();
-            //var rounds = await Database.GetAllWithChildrenAsync<Round>();
-            //var scores = await Database.GetAllWithChildrenAsync<UserScore>();
             var games = await Database.GetAllWithChildrenAsync<Game>(recursive: true);
-            
-
             return games;
         }
 
@@ -63,11 +58,8 @@ namespace MarcadorCanastra.Data
             if (game.Id != 0)
             {
                 var round = game.Rounds.Where(x => x.Id == 0).Single();
-
                 
                 await Database.InsertWithChildrenAsync(round);
-                //var insertedRound = await Database.GetWithChildrenAsync<Round>(round.Id);
-                //var currentGame = await Database.GetWithChildrenAsync<Game>(insertedRound.GameId);
                 await Database.UpdateWithChildrenAsync(game);
                 return await Task.FromResult(true);
             }
@@ -79,9 +71,9 @@ namespace MarcadorCanastra.Data
             }
         }
 
-        //public Task<int> DeleteItemAsync(TodoItem item)
-        //{
-        //    return Database.DeleteAsync(item);
-        //}
+        public Task<int> DeleteGameAsync(Game game)
+        {
+            return Database.DeleteAsync(game);
+        }
     }
 }
