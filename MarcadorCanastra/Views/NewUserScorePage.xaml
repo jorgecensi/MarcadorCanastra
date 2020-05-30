@@ -8,13 +8,17 @@
              Title="Marcar Rodada"
              Visual="Material">    
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Margin="5" Spacing="10">
+        <ScrollView BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <StackLayout Margin="5" Spacing="10"
+                         BackgroundColor="{DynamicResource PageBackgroundColor}"
+                         >
                 <Frame
                 Margin="5"
-                BackgroundColor="White"
-                CornerRadius="10">
-                    <StackLayout >
+                BackgroundColor="{DynamicResource PageBackgroundColor}"
+                CornerRadius="10"
+                    
+                    >
+                    <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
                         
                     
                         <Grid>

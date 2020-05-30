@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:local="clr-namespace:MarcadorCanastra.Views" Title="MarcadorCanastra" x:Class="MarcadorCanastra.AppShell">
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:local="clr-namespace:MarcadorCanastra.Views"
+       Title="MarcadorCanastra"
+       x:Class="MarcadorCanastra.AppShell"
+       BackgroundColor="{DynamicResource NavigationBarColor}"
+       FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}"
+       >
     <!-- 
         Styles and Resources 
     -->
     <Shell.Resources>
-        <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#009624</Color>
-            <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White" />
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarTitleColor" Value="White" />
-            </Style>
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-        </ResourceDictionary>
+        
+        <ResourceDictionary Source="Themes/LightTheme.xaml" />
+        
+       
     </Shell.Resources>
     <!-- Your Pages -->
-    <TabBar>
-       
-        <Tab Title="Jogos" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:GamesPage}" />
+
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="{DynamicResource NavigationBarColor}">
+                <Label Text="Marcador de Canastra"
+                       Padding="20"
+                       TextColor="{DynamicResource SecondaryTextColor}"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <FlyoutItem Title="Histórico"
+                
+                >
+        <Tab>
+            <ShellContent>
+                <local:GamesPage />
+            </ShellContent>
         </Tab>
-        
-    </TabBar>
+    </FlyoutItem>
+    <FlyoutItem Title="Configurações"
+                >
+        <Tab>
+            <ShellContent>
+                <local:SettingsPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 

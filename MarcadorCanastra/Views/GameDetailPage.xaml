@@ -8,18 +8,19 @@
              x:Class="MarcadorCanastra.Views.GameDetailPage"
              Title="Jogos"
              Visual="Material"
+             BackgroundColor="{DynamicResource NavigationBarColor}"
              >
     
     
-    <StackLayout 
+    <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}"
                  >
-        <StackLayout BackgroundColor="{StaticResource NavigationPrimary}"
+        <StackLayout BackgroundColor="{DynamicResource NavigationBarColor}"
                      HeightRequest="140"
                      
                      >
             <Frame
                 Margin="10"
-                BackgroundColor="White"
+                BackgroundColor="{DynamicResource CardBackgroundColor}"
                 CornerRadius="10"
                 
                 TranslationY="40">
@@ -45,6 +46,7 @@
                                    Grid.ColumnSpan="3"
                                    FontAttributes="Bold"
                                    HorizontalTextAlignment="Center"
+                                   TextColor="{DynamicResource SecondaryColor}"
                                    FontSize="Micro"/>
 
                             <Label Text="{Binding Game.Player1.Name}"
@@ -55,18 +57,20 @@
                                    HorizontalTextAlignment="Center"
                                    LineBreakMode="TailTruncation"
                                    WidthRequest="110"
+                                   TextColor="{DynamicResource SecondaryColor}"
                                    FontSize="Small"/>
                             <Label Text="X"                                   
                                    Grid.Row="1"
                                    Grid.Column="1"
                                    HorizontalOptions="CenterAndExpand"
-                                   
+                                   TextColor="{DynamicResource SecondaryColor}"
                                    FontAttributes="Bold"
                                    FontSize="Small"/>
                             <Label Text="{Binding Game.Player2.Name}"
                                    d:Text="Name2"
                                    HorizontalTextAlignment="Center"
                                    LineBreakMode="TailTruncation"
+                                   TextColor="{DynamicResource SecondaryColor}"
                                    WidthRequest="110"
                                    Grid.Row="1"
                                    Grid.Column="2"
@@ -81,12 +85,14 @@
                                     Grid.Column="0"
                                    HorizontalTextAlignment="Center"
                                    FontAttributes="Bold"
+                                   TextColor="{DynamicResource SecondaryColor}"
                                    FontSize="Title"/>
                             <Label Text="{Binding Game.FinalScorePlayer2}"
                                    d:Text="400"
                                    Grid.Row="2"
                                    HorizontalTextAlignment="Center"
                                     Grid.Column="2"
+                                   TextColor="{DynamicResource SecondaryColor}"
                                    FontAttributes="Bold"
                                    FontSize="Title"/>
                         </Grid>
@@ -103,7 +109,7 @@
             <Frame
             CornerRadius="10"
                 Margin="10"
-                BackgroundColor="White"
+                BackgroundColor="{DynamicResource CardBackgroundColor}"
                 TranslationY="40">
                 <StackLayout>
                     
@@ -130,6 +136,7 @@
                                                />
                                         <Label Text="-"
                                                FontSize="Title"
+                                               TextColor="{DynamicResource SecondaryColor}"
                                                HorizontalOptions="CenterAndExpand"
                                                VerticalOptions="Center"
                                                
@@ -160,7 +167,7 @@
                             Text="Marcar pontos"
                             Visual="Material"
                             Clicked="AddPlayer1Points_Clicked"
-                            BackgroundColor="LimeGreen"/>    
+                            BackgroundColor="{DynamicResource AccentTextColor}"/>    
     </StackLayout>
     
 </ContentPage>
