@@ -25,7 +25,7 @@ namespace MarcadorCanastra
         {
             InitializeComponent();
 
-            
+            Device.SetFlags(new string[] { "RadioButton_Experimental", "SwipeView_Experimental" });
             DependencyService.Register<GameDataStore>();
             MainPage = new AppShell();
         }

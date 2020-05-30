@@ -4,14 +4,36 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MarcadorCanastra.Views.SettingsPage">
     <ContentPage.Content>
-        <ScrollView BackgroundColor="{DynamicResource PageBackgroundColor}">
-            <StackLayout Margin="5" Spacing="10" BackgroundColor="{DynamicResource PageBackgroundColor }">
-                <Label Text="Dark Mode" TextColor="{DynamicResource SecondaryColor}"/>
-                <Switch 
-                    OnColor="LimeGreen"
-                    HorizontalOptions="Center"                                      
-                    IsToggled="{Binding IsDarkmode}" />
-            </StackLayout>
-        </ScrollView>
+        <TableView Intent="Settings"
+                   BackgroundColor="{DynamicResource PageBackgroundColor}"
+                    HasUnevenRows="True">
+            <TableRoot >
+                <TableSection Title="Aparencia" TextColor="{DynamicResource SecondaryColor}">
+                    <SwitchCell Text="Dark Mode" On="{Binding IsDarkmode}" />
+                </TableSection>
+                <TableSection Title="Pontuação" TextColor="{DynamicResource SecondaryColor}">
+                    <ViewCell Height="225">
+                        
+                        <StackLayout Margin="15,0">
+                            <Label Text="Pontuação máxima"
+                                   TextColor="{DynamicResource SecondaryColor}"/>
+                            <RadioButton Text="Sem Limite"
+                                         TextColor="{DynamicResource SecondaryColor}"
+                                         IsChecked="true" />
+                            <RadioButton Text="3000"
+                                         TextColor="{DynamicResource SecondaryColor}"/>
+                            <RadioButton Text="4000"
+                                         TextColor="{DynamicResource SecondaryColor}"/>
+                            <RadioButton Text="5000"
+                                         TextColor="{DynamicResource SecondaryColor}"
+                                         />
+                            <RadioButton Text="8000"
+                                         TextColor="{DynamicResource SecondaryColor}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        
     </ContentPage.Content>
 </ContentPage>
