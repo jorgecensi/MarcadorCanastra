@@ -12,6 +12,7 @@ namespace MarcadorCanastra.ViewModels
             {
                 _game = value;
                 OnPropertyChanged(nameof(Game));
+                OnPropertyChanged(nameof(ScoreEnabled));
                 OnPropertyChanged(nameof(Rounds));
             }
         }
@@ -24,6 +25,10 @@ namespace MarcadorCanastra.ViewModels
         {
             Title = $"Jogo: {game?.Date.ToString()} " ;
             Game = game;
+        }
+
+        public bool ScoreEnabled {
+            get => !_game.GameEnded;
         }
     }
 }

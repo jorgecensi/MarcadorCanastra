@@ -48,6 +48,7 @@ namespace MarcadorCanastra.Views
             }
             else
             {
+
                 MessagingCenter.Send(this, "AddRound", ViewModel.Round);
                 ViewModel.Salva();
                 await Navigation.PopModalAsync();

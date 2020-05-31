@@ -34,11 +34,13 @@ namespace MarcadorCanastra.Views
             await Navigation.PushModalAsync(new NavigationPage(new NewUserScorePage(viewModel)));
         }
 
-        
-
-
-
-
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (viewModel.Game.GameEnded)
+            {
+                DisplayAlert("Vitoria!", $"{viewModel.Game.Winner} ganhou o jogo.", "OK");
+            }
+        }
     }
 }

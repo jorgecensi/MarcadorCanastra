@@ -161,7 +161,7 @@
             
         </StackLayout>
         <Button
-                            
+                            IsEnabled="{Binding ScoreEnabled}"
                             CornerRadius="20"
                             Margin="10"
                             Text="Marcar pontos"
