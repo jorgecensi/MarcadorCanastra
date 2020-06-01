@@ -14,17 +14,17 @@ namespace MarcadorCanastra.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new NewGameViewModel( lastGame);            
+            BindingContext = viewModel = new NewGameViewModel(lastGame);
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            var player1 = new User { Name = string.IsNullOrEmpty( viewModel.Player1Name) ? "Jogador 1" : viewModel.Player1Name };
+            var player1 = new User { Name = string.IsNullOrEmpty(viewModel.Player1Name) ? "Jogador 1" : viewModel.Player1Name };
             var player2 = new User { Name = string.IsNullOrEmpty(viewModel.Player2Name) ? "Jogador 2" : viewModel.Player2Name };
-            
+
             var game = new Game(player1, player2);
             MessagingCenter.Send(this, "AddGame", game);
-           
+
             await Navigation.PushAsync(new GameDetailPage(new GameDetailViewModel(game)));
 
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);

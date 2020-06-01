@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
+using Xamarin.Essentials;
 
 namespace MarcadorCanastra.Models
 {
@@ -60,6 +61,30 @@ namespace MarcadorCanastra.Models
 
             
 
+        }
+
+        public bool GameEnded {
+            get
+            {
+                var result = false;
+                if (Preferences.Get("MaxPoints", 0) != 0)
+                {
+                    var maxPoints = Preferences.Get("MaxPoints", 0);
+                    if (FinalScorePlayer1 >= maxPoints || FinalScorePlayer2 >= maxPoints)
+                    {
+                        result =  true;
+                    }
+
+                }
+                return result;
+            }
+        }
+
+        public string Winner {
+            get
+            {
+                return FinalScorePlayer1 > FinalScorePlayer2 ? Player1.Name : Player2.Name;                
+            }
         }
 
 

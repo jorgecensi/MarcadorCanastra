@@ -1,36 +1,42 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="MarcadorCanastra.Views.NewGamePage"
-             Title="Novo Jogo"
-             Visual="Material">
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="MarcadorCanastra.Views.NewGamePage"
+    Title="Novo Jogo"
+    Visual="Material"
+    BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancelar" Clicked="Cancel_Clicked" />
-        
+        <ToolbarItem
+            Text="Cancelar"
+            Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="30"
-                     Padding="15"
-                     VerticalOptions="Center">
-            
-            <Entry Text="{Binding Player1Name}"
-                   d:Text="Jogador 1"
-                   Placeholder="Jogador 1"
-                   ClearButtonVisibility="WhileEditing"
-                   TextColor="LimeGreen"/>            
-            <Entry Text="{Binding Player2Name}"
-                    d:Text="Jogador 2"
-                    Placeholder="Jogador 2"
-                    Margin="0"
-                    ClearButtonVisibility="WhileEditing"
-                    TextColor="LimeGreen"/>
+        <StackLayout
+            Spacing="30"
+            Padding="15"
+            VerticalOptions="Center">
+            <Entry
+                Text="{Binding Player1Name}"
+                d:Text="Jogador 1"
+                Placeholder="Jogador 1"
+                ClearButtonVisibility="WhileEditing"
+                BackgroundColor="{DynamicResource TertiaryTextColor}"
+                TextColor="{DynamicResource AccentTextColor}" />
+            <Entry
+                Text="{Binding Player2Name}"
+                d:Text="Jogador 2"
+                Placeholder="Jogador 2"
+                Margin="0"
+                ClearButtonVisibility="WhileEditing"
+                BackgroundColor="{DynamicResource TertiaryTextColor}"
+                TextColor="{DynamicResource AccentTextColor}" />
             <Button
-                BackgroundColor="LimeGreen"
+                BackgroundColor="{DynamicResource AccentTextColor}"
                 Text="Jogar"
-                Clicked="Save_Clicked"/>
+                Clicked="Save_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

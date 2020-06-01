@@ -1,23 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewmodel="clr-namespace:MarcadorCanastra.ViewModels"
-             mc:Ignorable="d"
-             x:Class="MarcadorCanastra.Views.GamesPage"
-             Title="{Binding Title}"
-             x:Name="BrowseGamesPage"
-             Visual="Material">
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:MarcadorCanastra.ViewModels"
+    mc:Ignorable="d"
+    x:Class="MarcadorCanastra.Views.GamesPage"
+    Title="{Binding Title}"
+    x:Name="BrowseGamesPage"
+    Visual="Material">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Novo Jogo" Clicked="AddItem_Clicked" />
+        <ToolbarItem
+            Text="Novo Jogo"
+            Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
-    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadGamesCommand}">
-        <CollectionView x:Name="GamesCollectionView"
-                        ItemsSource="{Binding Games}"
-                       >
+    <RefreshView
+        IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+        Command="{Binding LoadGamesCommand}">
+        <CollectionView
+            x:Name="GamesCollectionView"
+            ItemsSource="{Binding Games}"
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
             <d:CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
+                <x:Array
+                    Type="{x:Type x:String}">
                     <x:String>First Item</x:String>
                     <x:String>Second Item</x:String>
                     <x:String>Third Item</x:String>
@@ -28,95 +34,109 @@
             </d:CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <SwipeView>
+                    <SwipeView
+                        BackgroundColor="{DynamicResource PageBackgroundColor}">
                         <SwipeView.LeftItems>
                             <SwipeItems>
-                                <SwipeItemView>
-                                    <StackLayout VerticalOptions="Center"
-                                                 HorizontalOptions="Center"
-                                                 
-                                                 Padding="5">
-                                        <Button Text="🗑 Remover"
-                                                TextColor="White"
-                                               BackgroundColor="IndianRed"
-                                                VerticalOptions="FillAndExpand"
-                                                HorizontalOptions="Center"
-                                               Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GamesViewModel}}, Path=RemoveGameCommand}"
-                                                CommandParameter="{Binding .}"
-                                               
-                                                />
+                                <SwipeItemView
+                                    BackgroundColor="{DynamicResource PageBackgroundColor}">
+                                    <StackLayout
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        BackgroundColor="{DynamicResource PageBackgroundColor}"
+                                        Padding="5">
+                                        <Button
+                                            Text="🗑 Remover"
+                                            TextColor="White"
+                                            BackgroundColor="IndianRed"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="Center"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GamesViewModel}}, Path=RemoveGameCommand}"
+                                            CommandParameter="{Binding .}" />
                                     </StackLayout>
-                                    
                                 </SwipeItemView>
                             </SwipeItems>
                         </SwipeView.LeftItems>
-                        <Grid Padding="15,5,15,5" >
-                        <Frame Padding="5"
-                               CornerRadius="8">
-                            <StackLayout >
-                                <Label Text="{Binding Date}"
-                                       d:Text="{Binding .}"
-                                       LineBreakMode="NoWrap"
-                                       FontSize="10" />
-                                <Grid >
-                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width=".45*"/>
-                                        <ColumnDefinition Width=".1*"   />
-                                        <ColumnDefinition Width=".45*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
+                        <Grid
+                            Padding="15,5,15,5"
+                            BackgroundColor="{DynamicResource PageBackgroundColor}">
+                            <Frame
+                                Padding="5"
+                                CornerRadius="8"
+                                BackgroundColor="{DynamicResource CardBackgroundColor}">
+                                <StackLayout
+                                    BackgroundColor="{DynamicResource CardBackgroundColor}">
                                     <Label
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                    Text="{Binding Player1.Name}"
-                                    d:Text="Nome 1"
-                                    LineBreakMode="NoWrap"
-                                    HorizontalTextAlignment="Center"
-                                    FontSize="15" />
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    Text="{Binding FinalScorePlayer1}"
-                                    TextColor="{StaticResource NavigationPrimary}"
-                                    d:Text="210"
-                                    LineBreakMode="NoWrap"
-                                    HorizontalTextAlignment="Center"
-                                    FontAttributes="Bold"
-                                    FontSize="25" />
-                        
-                                <Label
-                                    Grid.Row="0"
-                                        Grid.Column="2"
-                                    Text="{Binding Player2.Name}"
-                                    d:Text="Nome 2"
-                                    LineBreakMode="NoWrap"
-                                    HorizontalTextAlignment="Center"
-                                    FontSize="15" />
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Text="{Binding FinalScorePlayer2}"
-                                    d:Text="400"
-                                    TextColor="{StaticResource NavigationPrimary}"
-                                    LineBreakMode="NoWrap"
-                                    HorizontalTextAlignment="Center"
-                                    FontSize="25"
-                                    FontAttributes="Bold"/>
-                                </Grid>
-                        
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected">
-                                    </TapGestureRecognizer>
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-                        </Frame>
-                    </Grid>
+                                        Text="{Binding Date}"
+                                        d:Text="{Binding .}"
+                                        LineBreakMode="NoWrap"
+                                        FontSize="10" />
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition
+                                                Width=".45*" />
+                                            <ColumnDefinition
+                                                Width=".1*" />
+                                            <ColumnDefinition
+                                                Width=".45*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition
+                                                Height="auto" />
+                                            <RowDefinition
+                                                Height="auto" />
+                                            <RowDefinition
+                                                Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Text="{Binding Player1.Name}"
+                                            d:Text="Nome 1"
+                                            LineBreakMode="NoWrap"
+                                            HorizontalTextAlignment="Center"
+                                            FontSize="15" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Text="{Binding FinalScorePlayer1}"
+                                            TextColor="{DynamicResource PrimaryTextColor}"
+                                            d:Text="210"
+                                            LineBreakMode="NoWrap"
+                                            HorizontalTextAlignment="Center"
+                                            FontAttributes="Bold"
+                                            FontSize="25" />
+
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="2"
+                                            Text="{Binding Player2.Name}"
+                                            d:Text="Nome 2"
+                                            LineBreakMode="NoWrap"
+                                            HorizontalTextAlignment="Center"
+                                            FontSize="15" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Text="{Binding FinalScorePlayer2}"
+                                            d:Text="400"
+                                            TextColor="{DynamicResource PrimaryTextColor}"
+                                            LineBreakMode="NoWrap"
+                                            HorizontalTextAlignment="Center"
+                                            FontSize="25"
+                                            FontAttributes="Bold" />
+                                    </Grid>
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            NumberOfTapsRequired="1"
+                                            Tapped="OnItemSelected">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
                     </SwipeView>
-                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

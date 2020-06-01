@@ -1,220 +1,258 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="MarcadorCanastra.Views.NewUserScorePage"
-             Title="Marcar Rodada"
-             Visual="Material">    
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="MarcadorCanastra.Views.NewUserScorePage"
+    Title="Marcar Rodada"
+    Visual="Material">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Margin="5" Spacing="10">
-                <Frame
+        <ScrollView
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <StackLayout
                 Margin="5"
-                BackgroundColor="White"
-                CornerRadius="10">
-                    <StackLayout >
-                        
-                    
+                Spacing="10"
+                BackgroundColor="{DynamicResource PageBackgroundColor}">
+                <Frame
+                    Margin="5"
+                    BackgroundColor="{DynamicResource CardBackgroundColor}"
+                    CornerRadius="10">
+                    <StackLayout
+                        BackgroundColor="{DynamicResource CardBackgroundColor}">
+
+
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition
+                                    Width="200" />
+                                <ColumnDefinition
+                                    Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Text = "{Binding Round.Player1Score.User.Name}"
-                               d:Text="Player 1"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                               FontSize="Title"/>
-                            <Label Text="{Binding Round.Player1Score.Total}"
-                                   d:Text="5000"
-                                    HorizontalOptions="Center"
-                                   TextColor="LimeGreen"
-                                   FontSize="Large"
-                                   Grid.Row="0"
-                                   Grid.Column="1"/> 
-                            <Label Text="Batida"
-                                   FontSize="Small"
-                   
-                                   Grid.Row="1"
-                                   Grid.Column="0"/>
+                            <Label
+                                Text="{Binding Round.Player1Score.User.Name}"
+                                d:Text="Player 1"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontSize="Title" />
+                            <Label
+                                Text="{Binding Round.Player1Score.Total}"
+                                d:Text="5000"
+                                HorizontalOptions="Center"
+                                TextColor="LimeGreen"
+                                FontSize="Large"
+                                Grid.Row="0"
+                                Grid.Column="1" />
+                            <Label
+                                Text="Batida"
+                                FontSize="Small"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                Grid.Row="1"
+                                Grid.Column="0" />
 
-                            <Switch Grid.Row="1"
-                                    OnColor="LimeGreen"
-                                      Grid.Column="1"
-                                    HorizontalOptions="Center"                                      
-                                   IsToggled="{Binding Batida1}"
-                                    
-                      
-                                      />
-                            <Label Text="{Binding CanastraLimpaLabel}"
-                                   d:Text="Canastra Limpa (1)"
-                                   FontSize="Small"
-                   
-                                   Grid.Row="2"
-                                   Grid.Column="0"
-                                   />
-                            <Stepper Minimum="0"
-                                 Increment="1"
-                     VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                     
-                                 ValueChanged="OnCanastraLimpaStepperValueChanged"
-                                     Grid.Row="2"
-                                     Grid.Column="1"/>
-            
-                            <Label Text="{Binding CanastraSujaLabel}"
-                                   d:Text="Canastra Suja (1)"
-                   
-                                   FontSize="Small"
-                                   Grid.Row="3"
-                                   Grid.Column="0"/>
-                            <Stepper Minimum="0"
-                     
-                                 Increment="1"
-                                 HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     ValueChanged="OnCanastraSujaStepperValueChanged"
-                                     Grid.Row="3"
-                                     Grid.Column="1"/>
-            
-                            <Label Text="Total cartas menos cartas na mão"
-                   
-                                   FontSize="Small"
-                                   Grid.Row="4"
-                                   Grid.Column="0"
-                                   />
-                            <Entry Text="{Binding TotalCardsInHand}"
-                                   d:Text="25"
-                                   Keyboard="Numeric"
-                                   FontSize="Small"
-                                   Grid.Row="4"
-                                   VerticalOptions="Center"
-                                   
-                                   Grid.Column="1"/>
-                            
-                                       
-            
+                            <Switch
+                                Grid.Row="1"
+                                OnColor="LimeGreen"
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                IsToggled="{Binding Batida1}"
+                                ThumbColor="{DynamicResource ThumbColor}" />
+                            <Label
+                                Text="{Binding CanastraLimpaLabel}"
+                                d:Text="Canastra Limpa (1)"
+                                FontSize="Small"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                Grid.Row="2"
+                                Grid.Column="0" />
+                            <Stepper
+                                Minimum="0"
+                                Increment="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                ValueChanged="OnCanastraLimpaStepperValueChanged"
+                                Grid.Row="2"
+                                Grid.Column="1" />
+
+                            <Label
+                                Text="{Binding CanastraSujaLabel}"
+                                d:Text="Canastra Suja (1)"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontSize="Small"
+                                Grid.Row="3"
+                                Grid.Column="0" />
+                            <Stepper
+                                Minimum="0"
+                                Increment="1"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                ValueChanged="OnCanastraSujaStepperValueChanged"
+                                Grid.Row="3"
+                                Grid.Column="1" />
+
+                            <Label
+                                Text="Total cartas menos cartas na mão"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontSize="Small"
+                                Grid.Row="4"
+                                Grid.Column="0" />
+                            <Entry
+                                Text="{Binding TotalCardsInHand}"
+                                d:Text="25"
+                                Keyboard="Numeric"
+                                FontSize="Small"
+                                TextColor="{DynamicResource AccentTextColor}"
+                                BackgroundColor="{DynamicResource TertiaryTextColor}"
+                                Grid.Row="4"
+                                VerticalOptions="Center"
+                                Grid.Column="1" />
+
+
+
 
                         </Grid>
                     </StackLayout>
-                    
+
                 </Frame>
-                
+
                 <Frame
-                Margin="5"
-                BackgroundColor="White"
-                CornerRadius="10">
-                    <StackLayout >
-                        
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text = "{Binding Round.Player2Score.User.Name}"
-                       d:Text="Player 2"
-                       FontSize="Title"
-                           Grid.Row="0"
-                           Grid.Column="0"
-                           />
-                    <Label Text="{Binding Round.Player2Score.Total}"
-                           d:Text="5000"
-                           Visual="Material"
-                           FontSize="Large"
-                           Grid.Row="0"
-                           TextColor="LimeGreen"
-                           Grid.Column="1"/> 
-                    <Label Text="Batida"
-                           FontSize="Small"
-                           Visual="Material"
-                           Grid.Row="1"
-                           Grid.Column="0"/>
+                    Margin="5"
+                    BackgroundColor="{DynamicResource CardBackgroundColor}"
+                    CornerRadius="10">
+                    <StackLayout
+                        BackgroundColor="{DynamicResource CardBackgroundColor}">
 
-                    <Switch Grid.Row="1"
-                            OnColor="LimeGreen"
-                              Grid.Column="1"
-                              Visual="Material"
-                            HorizontalOptions="Center"                            
-                            IsToggled="{Binding Batida2}"
-                              />
-                    <Label Text="{Binding CanastraLimpaLabel2}"
-                           d:Text="Canastra Limpa (1)"
-                           FontSize="Small"
-                           Visual="Material"
-                           Grid.Row="2"
-                           Grid.Column="0"
-                           />
-                    <Stepper Minimum="0"
-                         Increment="1"
-                             Visual="Material"
-                         HorizontalOptions="Center"
-                     VerticalOptions="Center"
-                         ValueChanged="OnCanastraLimpa2StepperValueChanged"
-                             Grid.Row="2"
-                             Grid.Column="1"/>
-            
-                    <Label Text="{Binding CanastraSujaLabel2}"
-                           d:Text="Canastra Suja (1)"
-                           Visual="Material"
-                           FontSize="Small"
-                           Grid.Row="3"
-                           Grid.Column="0"/>
-                    <Stepper Minimum="0"
-                             Visual="Material"
-                         Increment="1"
-                         HorizontalOptions="Center"
-                             VerticalOptions="Center"
-                             ValueChanged="OnCanastraSuja2StepperValueChanged"
-                             Grid.Row="3"
-                             Grid.Column="1"/>
-            
-                    <Label Text="Total cartas menos cartas na mão"
-                           Visual="Material"
-                           FontSize="Small"
-                           Grid.Row="4"
-                           Grid.Column="0"
-                           />
-                    <Entry Text="{Binding TotalCardsInHand2}"
-                           d:Text="25"
-                           Visual="Material"
-                           FontSize="Small"
-                           Grid.Row="4"
-                           Keyboard="Numeric"
-                           Grid.Column="1"/>
-                    
-                               
-                    
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="200" />
+                                <ColumnDefinition
+                                    Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Text="{Binding Round.Player2Score.User.Name}"
+                                d:Text="Player 2"
+                                FontSize="Title"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                TextColor="{DynamicResource SecondaryColor}" />
+                            <Label
+                                Text="{Binding Round.Player2Score.Total}"
+                                d:Text="5000"
+                                Visual="Material"
+                                FontSize="Large"
+                                Grid.Row="0"
+                                TextColor="LimeGreen"
+                                Grid.Column="1" />
+                            <Label
+                                Text="Batida"
+                                FontSize="Small"
+                                Visual="Material"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                Grid.Row="1"
+                                Grid.Column="0" />
 
-                </Grid>
+                            <Switch
+                                Grid.Row="1"
+                                OnColor="LimeGreen"
+                                ThumbColor="{DynamicResource ThumbColor}"
+                                Grid.Column="1"
+                                Visual="Material"
+                                HorizontalOptions="Center"
+                                IsToggled="{Binding Batida2}" />
+                            <Label
+                                Text="{Binding CanastraLimpaLabel2}"
+                                d:Text="Canastra Limpa (1)"
+                                FontSize="Small"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                Visual="Material"
+                                Grid.Row="2"
+                                Grid.Column="0" />
+                            <Stepper
+                                Minimum="0"
+                                Increment="1"
+                                Visual="Material"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                ValueChanged="OnCanastraLimpa2StepperValueChanged"
+                                Grid.Row="2"
+                                Grid.Column="1" />
+
+                            <Label
+                                Text="{Binding CanastraSujaLabel2}"
+                                d:Text="Canastra Suja (1)"
+                                Visual="Material"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontSize="Small"
+                                Grid.Row="3"
+                                Grid.Column="0" />
+                            <Stepper
+                                Minimum="0"
+                                Visual="Material"
+                                Increment="1"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                ValueChanged="OnCanastraSuja2StepperValueChanged"
+                                Grid.Row="3"
+                                Grid.Column="1" />
+
+                            <Label
+                                Text="Total cartas menos cartas na mão"
+                                Visual="Material"
+                                FontSize="Small"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                Grid.Row="4"
+                                Grid.Column="0" />
+                            <Entry
+                                Text="{Binding TotalCardsInHand2}"
+                                d:Text="25"
+                                Visual="Material"
+                                TextColor="{DynamicResource AccentTextColor}"
+                                BackgroundColor="{DynamicResource TertiaryTextColor}"
+                                FontSize="Small"
+                                Grid.Row="4"
+                                Keyboard="Numeric"
+                                Grid.Column="1" />
+                        </Grid>
                     </StackLayout>
                 </Frame>
-                <Button Text="Salvar"
-                        Margin="10"
-                            CornerRadius="20"
-                            Visual="Material"
-                            Grid.Row="5"
-                            Grid.ColumnSpan="2"
-                            BackgroundColor="LimeGreen"
-                            Clicked="Save_Clicked"/>
+                <Button
+                    Text="Salvar"
+                    Margin="10"
+                    CornerRadius="20"
+                    Visual="Material"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="LimeGreen"
+                    Clicked="Save_Clicked" />
             </StackLayout>
         </ScrollView>
-    
-        
+
+
     </ContentPage.Content>
 </ContentPage>
