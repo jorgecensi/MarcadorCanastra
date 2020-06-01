@@ -1,173 +1,161 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             
-             mc:Ignorable="d"
-             x:Class="MarcadorCanastra.Views.GameDetailPage"
-             Title="Jogos"
-             Visual="Material"
-             BackgroundColor="{DynamicResource NavigationBarColor}"
-             >
-    
-    
-    <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}"
-                 >
-        <StackLayout BackgroundColor="{DynamicResource NavigationBarColor}"
-                     HeightRequest="140"
-                     
-                     >
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="MarcadorCanastra.Views.GameDetailPage"
+    Visual="Material"
+    BackgroundColor="{DynamicResource NavigationBarColor}">
+    <StackLayout
+        BackgroundColor="{DynamicResource PageBackgroundColor}">
+        <StackLayout
+            BackgroundColor="{DynamicResource NavigationBarColor}"
+            HeightRequest="140">
             <Frame
                 Margin="10"
                 BackgroundColor="{DynamicResource CardBackgroundColor}"
                 CornerRadius="10"
-                
                 TranslationY="40">
-                <StackLayout>
-                    <StackLayout >
-
-                        <Grid HorizontalOptions="FillAndExpand" >
+                <StackLayout
+                    BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <StackLayout>
+                        <Grid
+                            HorizontalOptions="FillAndExpand">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width=".45*"/>
-                                <ColumnDefinition Width=".1*"   />
-                                <ColumnDefinition Width=".45*"/>
+                                <ColumnDefinition
+                                    Width=".45*" />
+                                <ColumnDefinition
+                                    Width=".1*" />
+                                <ColumnDefinition
+                                    Width=".45*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="auto" />
                             </Grid.RowDefinitions>
-
-                            <Label Text="{Binding Game.Date}"
-                                   d:Text="12/12/2020 3:30 PM"
-                                   Grid.Row="0"
-                                    Grid.Column="0"
-                                   Grid.ColumnSpan="3"
-                                   FontAttributes="Bold"
-                                   HorizontalTextAlignment="Center"
-                                   TextColor="{DynamicResource SecondaryColor}"
-                                   FontSize="Micro"/>
-
-                            <Label Text="{Binding Game.Player1.Name}"
-                                   d:Text="Name"
-                                   Grid.Row="1"
-                                   Grid.Column="0"
-                                   FontAttributes="Bold"
-                                   HorizontalTextAlignment="Center"
-                                   LineBreakMode="TailTruncation"
-                                   WidthRequest="110"
-                                   TextColor="{DynamicResource SecondaryColor}"
-                                   FontSize="Small"/>
-                            <Label Text="X"                                   
-                                   Grid.Row="1"
-                                   Grid.Column="1"
-                                   HorizontalOptions="CenterAndExpand"
-                                   TextColor="{DynamicResource SecondaryColor}"
-                                   FontAttributes="Bold"
-                                   FontSize="Small"/>
-                            <Label Text="{Binding Game.Player2.Name}"
-                                   d:Text="Name2"
-                                   HorizontalTextAlignment="Center"
-                                   LineBreakMode="TailTruncation"
-                                   TextColor="{DynamicResource SecondaryColor}"
-                                   WidthRequest="110"
-                                   Grid.Row="1"
-                                   Grid.Column="2"
-                                   FontAttributes="Bold"
-                                   FontSize="Small"/>
-                            
-
-                            
-                            <Label Text="{Binding Game.FinalScorePlayer1}"
-                                   d:Text="300"
-                                   Grid.Row="2"
-                                    Grid.Column="0"
-                                   HorizontalTextAlignment="Center"
-                                   FontAttributes="Bold"
-                                   TextColor="{DynamicResource SecondaryColor}"
-                                   FontSize="Title"/>
-                            <Label Text="{Binding Game.FinalScorePlayer2}"
-                                   d:Text="400"
-                                   Grid.Row="2"
-                                   HorizontalTextAlignment="Center"
-                                    Grid.Column="2"
-                                   TextColor="{DynamicResource SecondaryColor}"
-                                   FontAttributes="Bold"
-                                   FontSize="Title"/>
+                            <Label
+                                Text="{Binding Game.Date}"
+                                d:Text="12/12/2020 3:30 PM"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="3"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontSize="Micro" />
+                            <Label
+                                Text="{Binding Game.Player1.Name}"
+                                d:Text="Name"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                LineBreakMode="TailTruncation"
+                                WidthRequest="110"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontSize="Small" />
+                            <Label
+                                Text="X"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalOptions="CenterAndExpand"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontAttributes="Bold"
+                                FontSize="Small" />
+                            <Label
+                                Text="{Binding Game.Player2.Name}"
+                                d:Text="Name2"
+                                HorizontalTextAlignment="Center"
+                                LineBreakMode="TailTruncation"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                WidthRequest="110"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                FontAttributes="Bold"
+                                FontSize="Small" />
+                            <Label
+                                Text="{Binding Game.FinalScorePlayer1}"
+                                d:Text="300"
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                HorizontalTextAlignment="Center"
+                                FontAttributes="Bold"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontSize="Title" />
+                            <Label
+                                Text="{Binding Game.FinalScorePlayer2}"
+                                d:Text="400"
+                                Grid.Row="2"
+                                HorizontalTextAlignment="Center"
+                                Grid.Column="2"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                FontAttributes="Bold"
+                                FontSize="Title" />
                         </Grid>
                     </StackLayout>
-                    
                 </StackLayout>
             </Frame>
-            
-
-        
-        
         </StackLayout>
         <StackLayout>
             <Frame
-            CornerRadius="10"
+                CornerRadius="10"
                 Margin="10"
                 BackgroundColor="{DynamicResource CardBackgroundColor}"
                 TranslationY="40">
-                <StackLayout>
-                    
-            
-                        <CollectionView
-                            ItemsSource="{Binding Rounds}"
-                            >
-                
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid HorizontalOptions="FillAndExpand">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="20*"/>
-                                            <ColumnDefinition Width="100"/>
-                                        </Grid.ColumnDefinitions>
-                                
-                                        <Label Text="{Binding Player1Score.Total}"
-                                               
-                                               FontSize="Title"
-                                               HorizontalTextAlignment="End"
-                                               TextColor="{Binding Player1Color}"
-                                               Grid.Column="0"
-                                               />
-                                        <Label Text="-"
-                                               FontSize="Title"
-                                               TextColor="{DynamicResource SecondaryColor}"
-                                               HorizontalOptions="CenterAndExpand"
-                                               VerticalOptions="Center"
-                                               
-                                               Grid.Column="1"/>
-
-                                        <Label Text="{Binding Player2Score.Total}"
-                                               FontSize="Title"
-                                               HorizontalTextAlignment="Start"
-                                               TextColor="{Binding Player2Color}"
-                                               Grid.Column="2"/>
-                                    </Grid>
-                        
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-
-                        </CollectionView>
-                        
-            
-                    
+                <StackLayout
+                    BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <CollectionView
+                        ItemsSource="{Binding Rounds}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition
+                                            Width="100" />
+                                        <ColumnDefinition
+                                            Width="20*" />
+                                        <ColumnDefinition
+                                            Width="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Text="{Binding Player1Score.Total}"
+                                        FontSize="Title"
+                                        HorizontalTextAlignment="End"
+                                        TextColor="{Binding Player1Color}"
+                                        Grid.Column="0" />
+                                    <Label
+                                        Text="-"
+                                        FontSize="Title"
+                                        TextColor="{DynamicResource SecondaryColor}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="Center"
+                                        Grid.Column="1" />
+                                    <Label
+                                        Text="{Binding Player2Score.Total}"
+                                        FontSize="Title"
+                                        HorizontalTextAlignment="Start"
+                                        TextColor="{Binding Player2Color}"
+                                        Grid.Column="2" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
             </Frame>
-            
         </StackLayout>
         <Button
-                            IsEnabled="{Binding ScoreEnabled}"
-                            CornerRadius="20"
-                            Margin="10"
-                            Text="Marcar pontos"
-                            Visual="Material"
-                            Clicked="AddPlayer1Points_Clicked"
-                            BackgroundColor="{DynamicResource AccentTextColor}"/>    
+            IsVisible="{Binding ScoreEnabled}"
+            CornerRadius="20"
+            Margin="10"
+            Text="Marcar pontos"
+            Visual="Material"
+            Clicked="AddPlayer1Points_Clicked"
+            BackgroundColor="{DynamicResource AccentTextColor}" />
     </StackLayout>
-    
 </ContentPage>

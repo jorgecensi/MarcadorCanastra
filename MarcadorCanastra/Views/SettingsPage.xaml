@@ -1,45 +1,55 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage
+﻿<ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MarcadorCanastra.Views.SettingsPage"
     Title="Configurações">
     <ContentPage.Content>
-        <TableView Intent="Settings"
-                   BackgroundColor="{DynamicResource PageBackgroundColor}"
-                    HasUnevenRows="True">
-            <TableRoot >
-                <!--<TableSection Title="Aparencia" TextColor="{DynamicResource SecondaryColor}">
-                    <SwitchCell Text="Dark Mode" On="{Binding IsDarkmode}" />
+        <TableView
+            Intent="Settings"
+            BackgroundColor="{DynamicResource PageBackgroundColor}"
+            HasUnevenRows="True">
+            <TableRoot>
+                <!--<TableSection
+                    Title="Aparencia"
+                    TextColor="{DynamicResource SecondaryColor}">
+                    <SwitchCell
+                        Text="Dark Mode"
+                        On="{Binding IsDarkmode}" />
                 </TableSection>-->
-                <TableSection Title="Pontuação" TextColor="{DynamicResource SecondaryColor}">
-                    <ViewCell Height="250">
-                        
-                        <StackLayout Margin="15,0">
-                            <Label Text="Pontuação máxima"
-                                   TextColor="{DynamicResource SecondaryColor}"
-                                   />
-                            <RadioButton Text="Sem Limite"
-                                         TextColor="{DynamicResource SecondaryColor}"
-                                         IsChecked="{Binding NoLimit}"/>
-                            <RadioButton Text="3000"
-                                         TextColor="{DynamicResource SecondaryColor}"
-                                         IsChecked="{Binding Max3000}"/>
-                            <RadioButton Text="4000"
-                                         TextColor="{DynamicResource SecondaryColor}"
-                                         IsChecked="{Binding Max4000}"/>
-                            <RadioButton Text="5000"
-                                         TextColor="{DynamicResource SecondaryColor}"
-                                         IsChecked="{Binding Max5000}"
-                                         />
-                            <RadioButton Text="8000"
-                                         TextColor="{DynamicResource SecondaryColor}"
-                                         IsChecked="{Binding Max8000}"/>
+                <TableSection
+                    Title="Pontuação"
+                    TextColor="{DynamicResource SecondaryColor}">
+                    <ViewCell
+                        Height="250">
+                        <StackLayout
+                            Margin="15,0">
+                            <Label
+                                Text="Pontuação máxima"
+                                TextColor="{DynamicResource SecondaryColor}" />
+                            <RadioButton
+                                Text="Sem Limite"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                IsChecked="{Binding NoLimit}" />
+                            <RadioButton
+                                Text="3000"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                IsChecked="{Binding Max3000}" />
+                            <RadioButton
+                                Text="4000"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                IsChecked="{Binding Max4000}" />
+                            <RadioButton
+                                Text="5000"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                IsChecked="{Binding Max5000}" />
+                            <RadioButton
+                                Text="8000"
+                                TextColor="{DynamicResource SecondaryColor}"
+                                IsChecked="{Binding Max8000}" />
                         </StackLayout>
                     </ViewCell>
                 </TableSection>
             </TableRoot>
         </TableView>
-        
     </ContentPage.Content>
 </ContentPage>

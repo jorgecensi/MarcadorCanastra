@@ -1,49 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms"
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       mc:Ignorable="d"
-       xmlns:local="clr-namespace:MarcadorCanastra.Views"
-       Title="MarcadorCanastra"
-       x:Class="MarcadorCanastra.AppShell"
-       BackgroundColor="{DynamicResource NavigationBarColor}"
-       FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}"
-       >
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:MarcadorCanastra.Views"
+    Title="MarcadorCanastra"
+    x:Class="MarcadorCanastra.AppShell"
+    BackgroundColor="{DynamicResource NavigationBarColor}"
+    FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}">
     <!-- 
         Styles and Resources 
     -->
     <Shell.Resources>
-        
-        <ResourceDictionary Source="Themes/LightTheme.xaml" />
-        
-       
+
+        <ResourceDictionary
+            Source="Themes/LightTheme.xaml" />
+
+
     </Shell.Resources>
     <!-- Your Pages -->
 
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="{DynamicResource NavigationBarColor}">
-                <Label Text="Marcador de Canastra"
-                       Padding="20"
-                       TextColor="{DynamicResource SecondaryTextColor}"/>
+            <Grid
+                BackgroundColor="{DynamicResource NavigationBarColor}">
+                <Label
+                    Text="Marcador de Canastra"
+                    Padding="20"
+                    TextColor="{DynamicResource SecondaryTextColor}" />
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-    <FlyoutItem Title="Histórico"
-                Icon="view_agenda.png"
-                
-                >
+    <FlyoutItem
+        Title="Histórico"
+        Icon="view_agenda.png">
         <Tab>
             <ShellContent>
                 <local:GamesPage />
             </ShellContent>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Configurações"
-                Icon="settings.png"
-                >
+    <FlyoutItem
+        Title="Configurações"
+        Icon="settings.png">
         <Tab>
             <ShellContent>
                 <local:SettingsPage />
@@ -51,7 +52,7 @@
         </Tab>
     </FlyoutItem>
 
-    
+
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 
