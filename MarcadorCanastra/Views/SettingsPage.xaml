@@ -44,7 +44,7 @@
                     </ViewCell>
                 </TableSection>
                 <TableSection
-                    Title="Aparencia"
+                    Title="Aparência"
                     TextColor="{DynamicResource SecondaryColor}">
                     <SwitchCell
                         Text="Manter tela sempre ligada"
