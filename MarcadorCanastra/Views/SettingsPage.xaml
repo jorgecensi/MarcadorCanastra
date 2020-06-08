@@ -9,15 +9,9 @@
             BackgroundColor="{DynamicResource PageBackgroundColor}"
             HasUnevenRows="True">
             <TableRoot>
-                <!--<TableSection
-                    Title="Aparencia"
-                    TextColor="{DynamicResource SecondaryColor}">
-                    <SwitchCell
-                        Text="Dark Mode"
-                        On="{Binding IsDarkmode}" />
-                </TableSection>-->
+
                 <TableSection
-                    Title="Pontuação"
+                    Title="Jogo"
                     TextColor="{DynamicResource SecondaryColor}">
                     <ViewCell
                         Height="250">
@@ -48,6 +42,16 @@
                                 IsChecked="{Binding Max8000}" />
                         </StackLayout>
                     </ViewCell>
+                </TableSection>
+                <TableSection
+                    Title="Aparencia"
+                    TextColor="{DynamicResource SecondaryColor}">
+                    <SwitchCell
+                        Text="Manter tela sempre ligada"
+                        On="{Binding KeepScreenOn}" />
+                    <!--<SwitchCell
+                        Text="Dark Mode"
+                        On="{Binding IsDarkmode}" />-->
                 </TableSection>
             </TableRoot>
         </TableView>

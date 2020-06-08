@@ -9,10 +9,12 @@ namespace MarcadorCanastra.ViewModels
 {
     public class SettingsViewModel : BaseViewModel
     {
-        public bool IsDarkmode {
+        public bool IsDarkmode
+        {
             get => Preferences.Get("IsDarkMode", false);
 
-            set {
+            set
+            {
                 Preferences.Set("IsDarkMode", value);
                 ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
                 if (mergedDictionaries != null)
@@ -36,17 +38,20 @@ namespace MarcadorCanastra.ViewModels
             }
         }
 
-        public bool NoLimit {
-            get => Preferences.Get("MaxPoints", 0)==0;
-            set {
+        public bool NoLimit
+        {
+            get => Preferences.Get("MaxPoints", 0) == 0;
+            set
+            {
                 if (value)
                 {
                     Preferences.Set("MaxPoints", 0);
                 }
-                
+
             }
         }
-        public bool Max3000 {
+        public bool Max3000
+        {
             get => Preferences.Get("MaxPoints", 0) == 3000;
             set
             {
@@ -55,18 +60,21 @@ namespace MarcadorCanastra.ViewModels
                     Preferences.Set("MaxPoints", 3000);
                 }
             }
-                
+
         }
-        public bool Max4000 {
+        public bool Max4000
+        {
             get => Preferences.Get("MaxPoints", 0) == 4000;
-            set {
+            set
+            {
                 if (value)
                 {
                     Preferences.Set("MaxPoints", 4000);
                 }
-            } 
+            }
         }
-        public bool Max5000 {
+        public bool Max5000
+        {
             get => Preferences.Get("MaxPoints", 0) == 5000;
             set
             {
@@ -75,15 +83,28 @@ namespace MarcadorCanastra.ViewModels
                     Preferences.Set("MaxPoints", 5000);
                 }
             }
-            }
-        public bool Max8000 {
+        }
+        public bool Max8000
+        {
             get => Preferences.Get("MaxPoints", 0) == 8000;
-            set {
+            set
+            {
                 if (value)
                 {
                     Preferences.Set("MaxPoints", 8000);
                 }
-            } 
+            }
         }
+
+        public bool KeepScreenOn
+        {
+            get => Preferences.Get("KeepScreenOn", false);
+            set
+            {
+                Preferences.Set("KeepScreenOn", value);
+                DeviceDisplay.KeepScreenOn = value;
+            }
+        }
+
     }
 }
