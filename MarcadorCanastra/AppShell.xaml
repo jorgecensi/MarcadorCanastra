@@ -42,6 +42,7 @@
             </ShellContent>
         </Tab>
     </FlyoutItem>
+
     <FlyoutItem
         Title="Configurações"
         Icon="settings.png">
@@ -51,6 +52,13 @@
             </ShellContent>
         </Tab>
     </FlyoutItem>
+
+    <MenuItem
+        Text="Compartilhe este app"
+        IconImageSource="share.png"
+        Command="{Binding ShareUriCommand}">
+
+    </MenuItem>
 
 
     <!-- Optional Templates 

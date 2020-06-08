@@ -48,7 +48,7 @@ namespace MarcadorCanastra
                         break;
                 }
             }
-
+            DeviceDisplay.KeepScreenOn = Preferences.Get("KeepScreenOn", false);
 
             MainPage = new AppShell();
         }
