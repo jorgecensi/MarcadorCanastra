@@ -70,6 +70,7 @@
                                         Text="{Binding Date}"
                                         d:Text="{Binding .}"
                                         LineBreakMode="NoWrap"
+                                        HorizontalOptions="Center"
                                         FontSize="10" />
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -92,6 +93,7 @@
                                             Grid.Row="0"
                                             Grid.Column="0"
                                             Text="{Binding Player1.Name}"
+                                            TextColor="{DynamicResource SecondaryColor}"
                                             d:Text="Nome 1"
                                             LineBreakMode="NoWrap"
                                             HorizontalTextAlignment="Center"
@@ -111,6 +113,7 @@
                                             Grid.Row="0"
                                             Grid.Column="2"
                                             Text="{Binding Player2.Name}"
+                                            TextColor="{DynamicResource SecondaryColor}"
                                             d:Text="Nome 2"
                                             LineBreakMode="NoWrap"
                                             HorizontalTextAlignment="Center"

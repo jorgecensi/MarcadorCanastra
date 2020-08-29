@@ -6,7 +6,7 @@
     <Color
         x:Key="NavigationPrimary">#009624</Color>
     <Color
-        x:Key="PageBackgroundColor">White</Color>
+        x:Key="PageBackgroundColor">WhiteSmoke</Color>
     <Color
         x:Key="CardBackgroundColor">White</Color>
     <Color
@@ -22,7 +22,7 @@
     <Color
         x:Key="SecondaryTextColor">White</Color>
     <Color
-        x:Key="TertiaryTextColor">WhiteSmoke</Color>
+        x:Key="TertiaryTextColor">White</Color>
     <Color
         x:Key="TransparentColor">Transparent</Color>
     <Color
