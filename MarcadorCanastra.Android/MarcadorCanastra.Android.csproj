@@ -44,6 +44,7 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
 <AndroidLinkTool>proguard</AndroidLinkTool>
 <AndroidPackageFormat>aab</AndroidPackageFormat>
+<CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
