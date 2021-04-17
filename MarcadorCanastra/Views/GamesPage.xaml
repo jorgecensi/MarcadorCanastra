@@ -67,7 +67,7 @@
                                 <StackLayout
                                     BackgroundColor="{DynamicResource CardBackgroundColor}">
                                     <Label
-                                        Text="{Binding Date}"
+                                        Text="{Binding Date, StringFormat='{}{0:dd/MM/yyyy hh:mm tt}'}"
                                         d:Text="{Binding .}"
                                         LineBreakMode="NoWrap"
                                         HorizontalOptions="Center"

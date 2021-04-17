@@ -6,18 +6,18 @@ using MarcadorCanastra.Models;
 
 namespace MarcadorCanastra.Services
 {
-    public class GameDataStore: IGameDataStore<Game>
+    public class GameDataStore : IGameDataStore<Game>
     {
         //readonly List<Game> games = new List<Game>();
         public GameDataStore()
         {
-            
+
         }
 
         public async Task<bool> AddGameAsync(Game game)
         {
             await App.Database.SaveGameAsync(game);
-            
+
 
             return await Task.FromResult(true);
         }
@@ -39,7 +39,7 @@ namespace MarcadorCanastra.Services
         {
             var game = await App.Database.GetGameAsync(id);
             await App.Database.DeleteGameAsync(game);
-            
+
             return await Task.FromResult(true);
         }
 
