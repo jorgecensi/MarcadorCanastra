@@ -42,7 +42,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-<AndroidLinkTool>proguard</AndroidLinkTool>
+<AndroidLinkTool>r8</AndroidLinkTool>
 <AndroidPackageFormat>aab</AndroidPackageFormat>
 <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
   </PropertyGroup>
