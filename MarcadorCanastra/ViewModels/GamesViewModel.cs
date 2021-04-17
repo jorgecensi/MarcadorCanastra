@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace MarcadorCanastra.ViewModels
 {
-    public class GamesViewModel:BaseViewModel
+    public class GamesViewModel : BaseViewModel
     {
         public ObservableRangeCollection<Game> Games { get; set; }
         public AsyncCommand LoadGamesCommand { get; set; }
@@ -29,17 +29,15 @@ namespace MarcadorCanastra.ViewModels
             MessagingCenter.Subscribe<NewGamePage, Game>(this, "AddGame", async (obj, game) =>
             {
                 var newGame = game as Game;
-                Games.Add(newGame);
-                
+
                 await GameDataStore.AddGameAsync(newGame);
+                await UpdateGameList();
             });
             MessagingCenter.Subscribe<NewUserScorePage, Round>(this, "AddRound", async (obj, round) =>
             {
                 var newRound = round as Round;
                 await GameDataStore.AddRoundAsync(newRound);
-                Games.Clear();
-                var games = await GameDataStore.GetGamesAsync(true);
-                Games.AddRange(games);
+                await UpdateGameList();
             });
         }
         public Game LastGame()
@@ -54,11 +52,9 @@ namespace MarcadorCanastra.ViewModels
 
             try
             {
-                
+
                 await GameDataStore.DeleteGameAsync(game.Id);
-                Games.Clear();
-                var games = await GameDataStore.GetGamesAsync(true);
-                Games.AddRange(games);
+                await UpdateGameList();
             }
             catch (Exception ex)
             {
@@ -70,15 +66,20 @@ namespace MarcadorCanastra.ViewModels
             }
         }
 
+        private async Task UpdateGameList()
+        {
+            Games.Clear();
+            var games = await GameDataStore.GetGamesAsync(true);
+            Games.AddRange(games.OrderByDescending(x => x.Date));
+        }
+
         async Task ExecuteLoadGamesCommand()
         {
             IsBusy = true;
 
             try
             {
-                Games.Clear();
-                var games = await GameDataStore.GetGamesAsync(true);
-                Games.AddRange(games);                
+                await UpdateGameList();
             }
             catch (Exception ex)
             {

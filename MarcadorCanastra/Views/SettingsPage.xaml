@@ -21,23 +21,23 @@
                                 Text="Pontuação máxima"
                                 TextColor="{DynamicResource SecondaryColor}" />
                             <RadioButton
-                                Text="Sem Limite"
+                                Content="Sem Limite"
                                 TextColor="{DynamicResource SecondaryColor}"
                                 IsChecked="{Binding NoLimit}" />
                             <RadioButton
-                                Text="3000"
+                                Content="3000"
                                 TextColor="{DynamicResource SecondaryColor}"
                                 IsChecked="{Binding Max3000}" />
                             <RadioButton
-                                Text="4000"
+                                Content="4000"
                                 TextColor="{DynamicResource SecondaryColor}"
                                 IsChecked="{Binding Max4000}" />
                             <RadioButton
-                                Text="5000"
+                                Content="5000"
                                 TextColor="{DynamicResource SecondaryColor}"
                                 IsChecked="{Binding Max5000}" />
                             <RadioButton
-                                Text="8000"
+                                Content="8000"
                                 TextColor="{DynamicResource SecondaryColor}"
                                 IsChecked="{Binding Max8000}" />
                         </StackLayout>
