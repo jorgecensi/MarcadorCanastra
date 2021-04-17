@@ -3,7 +3,7 @@ using MvvmHelpers;
 
 namespace MarcadorCanastra.ViewModels
 {
-    public class NewUserScoreViewModel:BaseViewModel
+    public class NewUserScoreViewModel : BaseViewModel
     {
         private Game _game;
         private GameDetailViewModel _gameDetailViewModel;
@@ -18,14 +18,14 @@ namespace MarcadorCanastra.ViewModels
                 OnPropertyChanged(nameof(_gameDetailViewModel.Game));
             }
         }
-        
+
         public int? TotalCardsInHand
         {
 
             get => _round.Player1Score.TotalCardsInHand;
             set
             {
-                _round.Player1Score.TotalCardsInHand = value??0;
+                _round.Player1Score.TotalCardsInHand = value ?? 0;
                 OnPropertyChanged(nameof(Round));
             }
         }
@@ -36,7 +36,7 @@ namespace MarcadorCanastra.ViewModels
             get => _round.Player2Score.TotalCardsInHand;
             set
             {
-                _round.Player2Score.TotalCardsInHand = value??0;
+                _round.Player2Score.TotalCardsInHand = value ?? 0;
                 OnPropertyChanged(nameof(Round));
             }
         }
@@ -101,6 +101,17 @@ namespace MarcadorCanastra.ViewModels
             }
         }
 
+        public bool SemMorto1
+        {
+
+            get => _round.Player1Score.SemMorto;
+            set
+            {
+                _round.Player1Score.SemMorto = value;
+                OnPropertyChanged(nameof(Round));
+            }
+        }
+
         public bool Batida2
         {
 
@@ -112,9 +123,20 @@ namespace MarcadorCanastra.ViewModels
                 {
                     _round.Player1Score.IsBatida = false;
                 }
-                
+
                 OnPropertyChanged(nameof(Round));
                 OnPropertyChanged(nameof(Batida1));
+            }
+        }
+
+        public bool SemMorto2
+        {
+
+            get => _round.Player2Score.SemMorto;
+            set
+            {
+                _round.Player2Score.SemMorto = value;
+                OnPropertyChanged(nameof(Round));
             }
         }
 
@@ -132,8 +154,8 @@ namespace MarcadorCanastra.ViewModels
                 Player1Score = new UserScore(viewModel.Game.Player1) { PlayerNumber = 1 },
                 Player2Score = new UserScore(viewModel.Game.Player2) { PlayerNumber = 2 }
             };
-            
-            
+
+
             _canastraLimpaLabel = CANASTRALIMPA;
             _canastraSujaLabel = CANASTRASUJA;
             _canastraLimpaLabel2 = CANASTRALIMPA;
@@ -145,7 +167,7 @@ namespace MarcadorCanastra.ViewModels
             _gameDetailViewModel.Game = _game;
         }
 
-        
+
 
         public void SetCanastraLimpa(int value)
         {
